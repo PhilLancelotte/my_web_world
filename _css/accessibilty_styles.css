@@ -1,0 +1,100 @@
+body {
+    background-color: rgb(239, 240, 217);
+  }
+  strong {
+    color: #b90000;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0068d9;
+    color: rgb(239, 240, 217);
+    text-decoration: none;
+    border-radius: 4px;
+    }
+    .button:hover,
+    .button:focus {
+        background-color: #00366f;
+    }
+
+    h1 {
+        color: black;
+    }
+    h2 {
+        color: rgb(39, 39, 39);
+    }
+    h3 {
+        color: rgb(73, 68, 68);
+    }
+    h4 {
+        color: rgb(93, 83, 83);
+    }
+    h5 {
+        color: rgb(110, 86, 86);
+    }
+    h6 {
+        color: rgb(106, 61, 61);
+    }
+
+    .main-container{
+        flex:0 0 85%;
+        padding: 2px;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch; /* Makes all child items have equal height */
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .button-container {
+        display: inline;
+        justify-content: center;
+        text-align: center;
+        align-self: center;
+      }
+      
+    .img-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        align-self: center;
+    }
+    
+    .container-left{
+        background-color: rgb(212, 212, 212);
+        padding: 2px;
+        flex:0 0 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Left-align the content */
+        text-align: left;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+    .container-right{
+        background-color: rgb(212, 212, 212);
+        padding: 2px;
+        flex:0 0 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Left-align the content */
+        text-align: left;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap; /* added line */
+        border: 0;
+      }
+      
+      
