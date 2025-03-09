@@ -26,18 +26,22 @@
         <div class="main-container">
             <div class="container-left">
                 <div class="button-container">
-                    <a href="index.html" class="button" aria-describedby="desc1">Back to Version 1</a>
+                    <a href="index.html" class="button hover-effect-btn" aria-describedby="desc1">Back to Version 1</a>
                     <span id="desc1" class="visually-hidden">Go back to the previous version of the website</span>
-                    <a href="version2-accessible.html" class="button" aria-describedby="desc2">Back to Version 2</a>
+                    <a href="version2-accessible.html" class="button hover-effect-btn" aria-describedby="desc2">Back to Version 2</a>
                     <span id="desc2" class="visually-hidden">Navigate to the accessible version of the site</span>
-                    <a href="version3-mobile.html" class="button" aria-describedby="desc3">Back to Version 3</a>
+                    <a href="version3-mobile.html" class="button hover-effect-btn" aria-describedby="desc3">Back to Version 3</a>
                     <span id="desc2" class="visually-hidden">Navigate to the accessible version of the site for mobiles</span>
                     
                 </div>
                 <p title='ooh, a paragraph'>My name is Phil, this is me with a blue beard - honestly, I am happy!!</p>
                 <div class="img-container">
-                    <img title='Blue Bearded Happy Man' src ='_images/me.jpeg' alt="Man with a blue beard" width="200">
+                    <img title='Blue Bearded Happy Man' id="me" class="img-fluid hover-effect" src ='_images/me.jpeg' alt="Man with a blue beard" width="200" >
+                    <button onclick="document.getElementById('me').src='_images/me.jpeg'" class="hover-effect-btn">Upright Me</button> <!-- from w3schools - cx HTML attribute src -->
+                    <button onclick="document.getElementById('me').src='_images/meflipped.jpeg'" class="hover-effect-btn">Upside down me</button> <!-- from w3schools - cx HTML attribute src -->
                 </div>
+
+
                 <h2 title='BOLD'><b>I like to make things bold so they stand out.</b></h2>
                 <h3 title='slanty'><i>...and italic so they are jaunty.</i></h3>
                 <h4 style="color: #b90000 " title='color not colour!!'>and red too. </style></h4>
@@ -59,7 +63,7 @@
                     <input type="radio" id="ass" name="fav_small_horse" value="Ass">
                     <label for="ass">Ass</label><br><br>
 
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" aria-label="this is the submit button">
                 </form>
 
 
@@ -68,6 +72,14 @@
                 
 
 <h1 style="text-align:center;">Centred Heading</h1> 
+<div class="main-container">
+    <div class="container-wide">
+        <header><h1 title='title'>This should display random quotes.</h1></header>
+        <div id="random_content"></div>
+        <br>
+        <button id="new-quote">New Quote</button>
+    </div>
+</div>
 
 <script>
     document.getElementById('myForm').addEventListener('submit', function(event) {
@@ -87,6 +99,55 @@
         'Welcome ' + firstName + ' ' + lastName +
         '! I see you like ' + favSmallHorse + 's. What is wrong with a dog??';
     });
+
+    // This is the quote changeover script, it gives a new quote whan a button is pressed
+    // This is an array of computer quotes
+    const quotes = [
+        "The computer was born to solve problems that did not exist before. – Bill Gates",
+        "The computer is a bicycle for our minds. – Steve Jobs",
+        "Computers are incredibly fast, accurate, and stupid; humans are incredibly slow, inaccurate, and brilliant. Together they are powerful beyond imagination. – Anonymous",
+        "To err is human, but to really foul things up you need a computer. – Paul R. Ehrlich",
+        "I do not fear computers. I fear the lack of them. – Isaac Asimov",
+        "A computer once beat me at chess, but it was no match for me at kickboxing. – Emo Philips",
+        "Programming is not about what you know; it’s about what you can figure out. – Chris Pine",
+        "Any sufficiently advanced technology is indistinguishable from magic. – Arthur C. Clarke",
+        "Computers are like Old Testament gods; lots of rules and no mercy. – Joseph Campbell",
+        "Software is a great combination between artistry and engineering. – Bill Gates",
+        "The most dangerous phrase in the language is, 'We've always done it this way.' – Grace Hopper",
+        "Technology is best when it brings people together. – Matt Mullenweg",
+        "The only way to learn a new programming language is by writing programs in it. – Dennis Ritchie",
+        "Walking on water and developing software from a specification are easy if both are frozen. – Edward V. Berard",
+        "Simplicity is prerequisite for reliability. – Edsger W. Dijkstra",
+        "Measuring programming progress by lines of code is like measuring aircraft building progress by weight. – Bill Gates",
+        "Before software can be reusable it first has to be usable. – Ralph Johnson",
+        "The best error message is the one that never shows up. – Thomas Fuchs",
+        "Computers are marvelous tools, but in the end, they're only as good as the people using them. – Unknown",
+        "Innovation is the outcome of a habit, not a random act. – Sukant Ratnakar",
+        "Cheese: Milk’s leap towards immortality. – Clifton Fadiman",
+        "Age is of no importance, unless you're a cheese. – Anonymous",
+        "Life is great. Cheese makes it better. – Anonymous",
+        "And now for something completely different. – Monty Python",
+        "It's just a flesh wound. – The Black Knight, Monty Python and the Holy Grail",
+        "I'm not dead yet! – Monty Python and the Holy Grail",
+        "Nobody expects the Spanish Inquisition! – Monty Python's Flying Circus",
+        "Always look on the bright side of life. – Monty Python's Life of Brian"
+    ];
+
+    function getRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      return quotes[randomIndex];
+    }
+
+    // Display an initial random quote
+    const randomContentDiv = document.getElementById('random_content');
+    function displayRandomQuote() {
+      randomContentDiv.textContent = getRandomQuote();
+    }
+    displayRandomQuote();
+
+    // Change the quote on button click
+    document.getElementById('new-quote').addEventListener('click', displayRandomQuote);
   </script>
+
     </body>
 </html>
