@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Story Redirect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Define an array of story URLs
+      const stories = [
+        '../story.html?story=Fog',
+        '../story.html?story=Snot',
+        '../story.html?story=Windbag',
+        '../story.html?story=The Wrong Spatula',
+        '../story.html?story=Frankie Skid - Fearless Squid',
+        '../story.html?story=Noodle Pig',
+        '../story.html?story=Couch Potato',
+        '../story.html?story=Gary Blizzard - Almost Wizard',
+        '../story.html?story=Cone Of Shame',
+        '../story.html?story=Whats That Noise',
+        '../story.html?story=Doctor Boomers Alternative Medicine',
+        '../story.html?story=Visitors',
+        '../story.html?story=Space Armada',
+        '../story.html?story=Where Exactly Did You Put The Moon Kevin',
+        '../story.html?story=Detention',
+        '../story.html?story=Nuts',
+        '../story.html?story=Blue Whale Cheese',
+        '../story.html?story=Mikes Magic Underpants',
+        '../story.html?story=Slug',
+        '../story.html?story=Day 1347',
+        '../story.html?story=The Dripping Tap',
+        '../story.html?story=The School Of Mum And Dad',
+        '../story.html?story=Halfway Up A Mountain',
+        '../story.html?story=Dihydrogen Monoxide',
+        '../story.html?story=Odd Socks',
+        '../story.html?story=Bless You',
+        '../story.html?story=I Dont Like THAT Colour'
+      ];
+
+      // Pick a random story from the array
+      const randomIndex = Math.floor(Math.random() * stories.length);
+      const randomStory = stories[randomIndex];
+
+      // Redirect the user to the chosen story URL
+      window.location.href = randomStory;
+    });
+  </script>
+</head>
+<!-- <body>
+  <p>Redirecting to a random story…</p>
+</body> -->
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- The title will be set dynamically -->
+  <title id="page-title"></title>
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="imagetoolbar" content="no">
+  <!-- Bootstrap CSS -->
+  <link href="../_bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="main.css" rel="stylesheet" type="text/css">
+  <!-- Prevent caching -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="shortcut icon" href="favicon.ico?">
+
+</head>
+<body>
+  <div class="container text-center my-3">
+    <h1>
+      <a>
+      <img src="../exactly_500_words/_story_images/500_title.png" alt="500_title" class="img-fluid" style="height:5%vh;">
+        <span class="visually-hidden">Webpage header image</span>
+      </a>
+    </h1>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="d-flex flex-wrap align-items-center justify-content-center below-header" id="navigation">
+    <!-- Navigation buttons will be injected here -->
+  </div>
+
+  <!-- Template Content -->
+  <div class="container my-1">
+    <div id="template-content">
+      <!-- Content from template.php will be injected here -->
+    </div>
+  </div>
+
+  <script>
+    // 1. Get the "story" parameter from the URL (e.g. story.html?story=Fog)
+    const params = new URLSearchParams(window.location.search);
+    let story = params.get('story');
+    if (!story) {
+      story = 'No Story Available - Sorry';
+    }
+    // Simulate storing in session by using sessionStorage
+    sessionStorage.setItem('story', story);
+
+    // 2. Determine follow-on flag based on specific story names
+    let followOn = false;
+    const followStories = [
+      'Where Exactly Did You Put The Moon Kevin',
+      'Its Exactly Where I Left It',
+      'Can You Make It Big Again'
+    ];
+    if (followStories.includes(story)) {
+      followOn = true;
+    }
+
+    // 3. Set the document title
+    document.title = story;
+    document.getElementById('page-title').textContent = story;
+
+    // 4. Render Navigation Buttons
+    const navDiv = document.getElementById('navigation');
+    navDiv.innerHTML = `
+      <a class="btn btn-primary mx-1 hover-effect-btn" href="index.html" role="button" style="margin-right: 10px;">Return to main page</a>
+      <a href="_info/random_story.html" class="btn btn-success mx-1 hover-effect-btn" style="margin-right: 8px;">Pick a Random Story</a>
+      ${followOn ? `<a href="follow_on_story.html" class="btn btn-danger btn-sm">This is a series - Next</a>` : ''}
+    `;
+
+    // 5. Build the story title with proper punctuation and text fixes
+    function transformTitle(story) {
+      let storyTitle = story;
+      const questionStarters = ['Where', 'What', 'Why', 'Who', 'How', 'Can'];
+      if (questionStarters.some(prefix => storyTitle.startsWith(prefix))) {
+        storyTitle += "?";
+      } else {
+        storyTitle += ".";
+      }
+      // Replace words with appropriate punctuation
+      storyTitle = storyTitle.replace(/\bThats\b/g, "That's")
+                             .replace(/\bIts\b/g, "It's")
+                             .replace(/\bWhats\b/g, "What's")
+                             .replace(/\bMikes\b/g, "Mike's")
+                             .replace(/\bDont\b/g, "Don't")
+                             .replace(/\bdont\b/g, "don't")
+                             .replace(/\bDihydrogen\b/g, "Di-Hydrogen");
+      return storyTitle;
+    }
+    const storyTitle = transformTitle(story);
+
+    // 6. Load the story content from a text file (simulate file_get_contents)
+    let contentPromise;
+    if (story !== 'No Story Available - Sorry') {
+      contentPromise = fetch(`_story_files/${story}.txt`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text();
+        })
+        .catch(error => {
+          console.error('Error fetching story content:', error);
+          return '<p>Failed to load content.</p>';
+        });
+    } else {
+      contentPromise = Promise.resolve('<p>This is the default content.</p>');
+    }
+
+    // 7. After loading the content, inject the complete template into the page
+    contentPromise.then(rawContent => {
+      // Replace newlines with <br> tags
+      const contentWithBreaks = rawContent.replace(/\n/g, '<br>');
+      const templateDiv = document.getElementById('template-content');
+      templateDiv.innerHTML = `
+        <header>
+          <h1>${storyTitle}</h1>
+        </header>
+        <div class="scrollable-container">
+          <div class="image_container">
+            ${story !== 'No Story Available - Sorry' ? `<img src="_story_images/${story}.png" alt="${story}" class="responsive" style="height:400px;">` : ''}
+          </div>
+          <main class="content">
+            ${contentWithBreaks}
+          </main>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>

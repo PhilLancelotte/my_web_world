@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="imagetoolbar" content="no" />
+    <!--boot strap CDN server link -->
+    <link href="../../_bootstrap/css/bootstrap.css" rel ="stylesheet" type="text/css">
+    <link href="../main.css" rel="stylesheet">
+    <link href="info.css" rel="stylesheet" type="text/css">
+    <!-- prevent caching-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel="shortcut icon" href="favicon.ico?">
+
+<title>500 Words - Cast</title>
+</head>
+<body>
+<div class="container text-center my-3">
+    <h1>
+      <a>
+        <img src="../_story_images/500_title.png" alt="500_title" class="img-fluid" style="height:5%vh;">
+      </a>
+    </h1>
+</div>
+
+<div class="d-flex align-items-center justify-content-center below-header"> 
+    <a class="btn btn-primary btn-sm hover-effect-btn" href="../" role="button">Return to main page</a>
+</div>
+<div class="d-flex align-items-center justify-content-center below-header"> 
+    <h1 class="mb-0">A Cast of a Thousand (well almost)</h1>
+</div>
+
+<div class="scrollable-container">
+    <div class="container my-2">
+        <div style="text-align: center;">
+            <main class="content" id="content">
+                <!-- Content loaded via JavaScript will appear here -->
+            </main>
+        </div>
+    </div>
+</div>
+
+<br>
+<div class="d-flex align-items-center justify-content-center below-header"> 
+    <a href="https://www.bbc.co.uk/teach/500-words" style="margin-right: 50px;">500 words - BBC</a>
+    <a href="https://www.storycubes.com/en/">Rory's story cubes</a>
+</div>  
+
+<script>
+        // When the document is loaded, fetch the text file and update the content
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("cast1000.txt")
+                .then(response => response.text())
+                .then(data => {
+                    // Convert newline characters to <br> tags
+                    const contentWithBreaks = data.replace(/\n/g, "<br>");
+                    document.getElementById("content").innerHTML = contentWithBreaks;
+                })
+                .catch(error => {
+                    console.error("Error fetching the file:", error);
+                    document.getElementById("content").innerHTML = "Failed to load content.";
+                });
+        });
+    </script>
+</body>
+
+</html>
+  
