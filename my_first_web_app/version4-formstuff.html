@@ -67,15 +67,15 @@
                 </form>
 
                 <form id="emailForm">
-                    <label for="email">Recipient Email:</label>
+                    <label for="email">Type your email address here (so you get a copy):</label>
                     <input type="email" id="email" value="someone@example.com" required>
                     <br><br>
                     
-                    <label for="subject">Subject:</label>
-                    <input type="text" id="subject" placeholder="Subject" required>
+                    <label for="idea">My Idea Is Called...:</label>
+                    <input type="text" id="idea" placeholder="idea" required>
                     <br><br>
                     
-                    <label for="body">Message:</label>
+                    <label for="body">Enter the details of your idea:</label>
                     <textarea id="body" placeholder="Type your message here..." required></textarea>
                     <br><br>
                     
@@ -165,22 +165,28 @@
     document.getElementById('new-quote').addEventListener('click', displayRandomQuote);
 
     document.getElementById('emailForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent form from submitting normally
-      
-      // Get form field values
-      const recipient = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const body = document.getElementById('body').value;
-      
-      // URL encode the subject and body
-      const encodedSubject = encodeURIComponent(subject);
-      const encodedBody = encodeURIComponent(body);
-      
-      // Construct the mailto URL
-      const mailtoLink = `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}`;
-      
-      // Open the default mail client with the mailto link
-      window.location.href = mailtoLink;
+        event.preventDefault(); // Prevent form from submitting normally
+        
+        // Get form field values
+        const recipient = document.getElementById('email').value;
+        const subject = "I Have an Idea!!";
+        const body = document.getElementById('body').value;
+        const cc = encodeURIComponent('bassjuggler@gmail.com');
+
+        const standardText = "Hi, My idea is called: " + document.getElementById('idea').value;
+        const userMessage = "Thanks very much.";  // this might come from a form input
+        const signature = "\n\n--\nBest Regards";
+
+        // URL encode subject and body parts
+        const encodedSubject = encodeURIComponent(subject);
+        const encodedStandardText = encodeURIComponent(standardText);
+        const encodedUserMessage = encodeURIComponent(userMessage);
+        const encodedSignature = encodeURIComponent(signature);
+
+// Construct the mailto URL
+const mailtoLink = `mailto:${recipient}?cc=${cc}&subject=${encodedSubject}&body=${encodedStandardText}%0A%0A${body}%0A%0A${encodedUserMessage}${encodedSignature}`;
+
+console.log(mailtoLink);  // For testing, log the resulting link
     });
   </script>
 
