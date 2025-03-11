@@ -1,4 +1,9 @@
 /* Base Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font: 14px sans-serif;
 }
@@ -68,9 +73,9 @@ body {
   text-align: center;
   margin-bottom: 10px; /* from second snippet */
 }
-.box img {
+/* .box img {
   height: auto;
-}
+} */
 .box h4 {
   margin: 0;
 }
