@@ -183,10 +183,14 @@
         const encodedUserMessage = encodeURIComponent(userMessage);
         const encodedSignature = encodeURIComponent(signature);
 
-// Construct the mailto URL
-const mailtoLink = `mailto:${recipient}?cc=${cc}&subject=${encodedSubject}&body=${encodedStandardText}%0A%0A${body}%0A%0A${encodedUserMessage}${encodedSignature}`;
+        // Construct the mailto URL
+        const mailtoLink = `mailto:${recipient}?cc=${cc}&subject=${encodedSubject}&body=${encodedStandardText}%0A%0A${body}%0A%0A${encodedUserMessage}${encodedSignature}`;
 
-console.log(mailtoLink);  // For testing, log the resulting link
+        console.log(mailtoLink);  // For testing, log the resulting link
+
+      // Open the default mail client with the mailto link
+      window.location.href = mailtoLink;
+
     });
   </script>
 
