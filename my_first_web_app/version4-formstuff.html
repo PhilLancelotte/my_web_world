@@ -173,9 +173,9 @@
         const body = document.getElementById('body').value;
         const cc = encodeURIComponent('bassjuggler@gmail.com');
 
-        const standardText = "Hi, My idea is called: " + document.getElementById('idea').value;
+        const standardText = "Hi, \n\nMy idea is called: " + document.getElementById('idea').value;
         const userMessage = "Thanks very much.";  // this might come from a form input
-        const signature = "\n\n--\nBest Regards";
+        const signature = "\n\nBest Regards";
 
         // URL encode subject and body parts
         const encodedSubject = encodeURIComponent(subject);
