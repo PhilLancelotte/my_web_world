@@ -61,7 +61,7 @@ body { font: 14px sans-serif; }
 .scrollable-container {
     /* Adjust this height as needed (e.g., 60vh means 60% of the viewport height) */
     max-height: 50vh;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     padding: 5px; /* Optional padding for inner spacing */
 }
 
