@@ -192,6 +192,34 @@
       window.location.href = mailtoLink;
 
     });
+
+    const containerRight = document.querySelector('.container-right');
+        containerRight.addEventListener('mouseenter', () => {
+        // Change background color when mouse enters
+        containerRight.style.backgroundColor = '#666';
+        });
+        containerRight.addEventListener('mouseleave', () => {
+        // Change back when mouse leaves
+        containerRight.style.backgroundColor = rgb(212, 212, 212);
+        });
+        const containerLeft = document.querySelector('.container-left');
+        containerLeft.addEventListener('mouseenter', () => {
+        // Change background color when mouse enters
+        containerLeft.style.backgroundColor = '#666';
+        });
+        containerLeft.addEventListener('mouseleave', () => {
+        // Change back when mouse leaves
+        containerLeft.style.backgroundColor = rgb(212, 212, 212);
+        });
+        const containerWide = document.querySelector('.container-wide');
+        containerWide.addEventListener('mouseenter', () => {
+        // Change background color when mouse enters
+        containerWide.style.backgroundColor = '#666';
+        });
+        containerWide.addEventListener('mouseleave', () => {
+        // Change back when mouse leaves
+        containerWide.style.backgroundColor = rgb(212, 212, 212);
+        });
   </script>
 
     </body>
