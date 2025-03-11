@@ -62,7 +62,7 @@ body { font: 14px sans-serif; }
     /* Adjust this height as needed (e.g., 60vh means 60% of the viewport height) */
     max-height: 50vh;
     overflow-y: auto;
-    padding: 15px; /* Optional padding for inner spacing */
+    padding: 5px; /* Optional padding for inner spacing */
 }
 
 .below-header a {
