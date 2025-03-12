@@ -39,7 +39,7 @@
 
                 <p title='ooh, a paragraph'>This is a programming joke, I don't understand most of them yet!!</p>
                 <div class="img-container">
-                    <label id="jokesetup">Sudo make me a sandwich!</label>
+                    <label id="jokeSetup">Sudo make me a sandwich!</label>
                     <button onclick="getapi()">Get a new one!!</button>
 
                     <img title='Blue Bearded Happy Man' id="me" class="img-fluid hover-effect" src ='_images/me.jpeg' alt="Man with a blue beard" width="200" >
@@ -63,7 +63,7 @@ async function getapi() {
     const data = await response.json();
     console.log(data);
     const joke = data[0];
-    document.getElementById("comicTitle").innerHTML = `<strong>${joke.setup}</strong><br>${joke.punchline}`;
+    document.getElementById("jokeSetup").innerHTML = `<strong>${joke.setup}</strong><br>${joke.punchline}`;
   } catch (error) {
     console.error("Error fetching data:", error);
   }
