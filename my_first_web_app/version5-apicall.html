@@ -18,7 +18,7 @@
     </head>
     <body>
         <div class="main-container">
-            <header><h1 title='title'>Hello World!! Stay a while and hover over the elements.</h1></header>
+            <header><h1 title='title'>API Calls - Courtesy of XKCD Comics....</h1></header>
         </div>
         <div class="main-container">
             <header id="welcomeHeader"></header>
@@ -34,11 +34,13 @@
                     <span id="desc2" class="visually-hidden">Navigate to the accessible version of the site for mobiles</span>
                     <a href="version4-formstuff.html" class="button hover-effect-btn" aria-describedby="desc3">Back to Version 4</a>
                     <span id="desc2" class="visually-hidden">Navigate to the java heavy version of the site with forms</span>
-                    
+
                 </div>
 
                 <p title='ooh, a paragraph'>My name is Phil, this is me with a blue beard - honestly, I am happy!!</p>
                 <div class="img-container">
+                    <label id="comicTitle">Sudo make me a sandwich!</label>
+
                     <img title='Blue Bearded Happy Man' id="me" class="img-fluid hover-effect" src ='_images/me.jpeg' alt="Man with a blue beard" width="200" >
                     <button onclick="document.getElementById('me').src='_images/me.jpeg'" class="hover-effect-btn">Upright Me</button> <!-- from w3schools - cx HTML attribute src -->
                     <button onclick="document.getElementById('me').src='_images/meflipped.jpeg'" class="hover-effect-btn">Upside down me</button> <!-- from w3schools - cx HTML attribute src -->
@@ -46,7 +48,12 @@
 
             </div>
         </div>
-                
+                <button onclick="newComic()">Get a new one!!</button>
+<script>
+    const url="https://xkcd.com/614/info.0.json";
+    const response = await fetch(url);
 
+    document.getElementById("comicTitle").innerHTML=json.safe_title;
+</script>
     </body>
 </html>
