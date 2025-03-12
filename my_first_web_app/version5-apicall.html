@@ -52,15 +52,16 @@
 
 <script>
 
-async function getapi(url = "https://official-joke-api.appspot.com/jokes/programming/random") {
+const apiUrl = "https://official-joke-api.appspot.com/jokes/programming/random";
+
+async function getapi() {
   try {
-    const response = await fetch(url);
+    const response = await fetch(apiUrl);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
     console.log(data);
-    // For example, display the joke if your JSON is an array with one object
     const joke = data[0];
     document.getElementById("comicTitle").innerHTML = `<strong>${joke.setup}</strong><br>${joke.punchline}`;
   } catch (error) {
