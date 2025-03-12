@@ -51,13 +51,21 @@
                 <button onclick="newComic()">Get a new one!!</button>
 <script>
 
-    async function newComic(params) {
-        
-        const url="https://xkcd.com/614/info.0.json";
+async function newComic(params) {
+    const url = "https://cors-anywhere.herokuapp.com/https://xkcd.com/614/info.0.json";
+    try {
         const response = await fetch(url);
-        document.getElementById("comicTitle").innerHTML=json.safe_title;
-
+        // Check if response is OK (this might not be reached if CORS fails)
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const json = await response.json();
+        document.getElementById("comicTitle").innerHTML = json.safe_title;
+    } catch (error) {
+        console.error("Error fetching comic:", error);
     }
+}
+
 </script>
     </body>
 </html>
