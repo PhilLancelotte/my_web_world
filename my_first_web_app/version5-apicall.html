@@ -39,7 +39,8 @@
 
                 <p title='ooh, a paragraph'>My name is Phil, this is me with a blue beard - honestly, I am happy!!</p>
                 <div class="img-container">
-                    <label id="comicTitle">Sudo make me a sandwich!</label>
+                    <label id="jokesetup">Sudo make me a sandwich!</label>
+                    <label id="punchline">Sudo make me a sandwich!</label>
 
                     <img title='Blue Bearded Happy Man' id="me" class="img-fluid hover-effect" src ='_images/me.jpeg' alt="Man with a blue beard" width="200" >
                     <button onclick="document.getElementById('me').src='_images/me.jpeg'" class="hover-effect-btn">Upright Me</button> <!-- from w3schools - cx HTML attribute src -->
@@ -52,7 +53,7 @@
 
                 <script>
 
-                    const api_url ="https://zenquotes.io/api/quotes/";
+                    const api_url ="https://official-joke-api.appspot.com/jokes/programming/random";
                     
                     async function getapi(url)
                     {
