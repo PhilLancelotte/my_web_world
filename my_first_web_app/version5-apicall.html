@@ -50,10 +50,14 @@
         </div>
                 <button onclick="newComic()">Get a new one!!</button>
 <script>
-    const url="https://xkcd.com/614/info.0.json";
-    const response = await fetch(url);
 
-    document.getElementById("comicTitle").innerHTML=json.safe_title;
+    async function newComic(params) {
+        
+        const url="https://xkcd.com/614/info.0.json";
+        const response = await fetch(url);
+        document.getElementById("comicTitle").innerHTML=json.safe_title;
+
+    }
 </script>
     </body>
 </html>
