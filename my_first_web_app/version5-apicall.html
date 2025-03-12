@@ -51,19 +51,24 @@
         </div>
                 <button onclick="getapi()">Get a new one!!</button>
 
-                <script>
-
-                    const api_url ="https://official-joke-api.appspot.com/jokes/programming/random";
+<script>
+    
+const url ="https://official-joke-api.appspot.com/jokes/programming/random";            
+async function getapi(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
                     
-                    async function getapi(url)
-                    {
-                      const response = await fetch(url);
-                      var data = await response.json();
-                      console.log(data);
-                    }
+getapi(url);
                     
-                    getapi(api_url);
-                    
-                </script>
+</script>
     </body>
 </html>
