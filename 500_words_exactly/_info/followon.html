@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Follow On Redirect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Get the 'story' parameter from the URL
+    const params = new URLSearchParams(window.location.search);
+    const story = params.get('story');
+
+    document.addEventListener('DOMContentLoaded', function() {
+      let redirectUrl = ''; // Declare a variable to hold the URL
+
+      if (story === "Where Exactly Did You Put The Moon Kevin") {
+        redirectUrl = '../story.html?story=Its Exactly Where I Left It';
+      } else if (story === "Its Exactly Where I Left It") {
+        redirectUrl = '../story.html?story=Can You Make It Big Again';
+      } else if (story === "Can You Make It Big Again") {
+        redirectUrl = '../story.html?story=Thats A Relief';
+      }
+
+      if (redirectUrl) {
+        window.location.href = redirectUrl;
+      }
+    });
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

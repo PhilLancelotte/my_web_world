@@ -69,9 +69,10 @@
     navDiv.innerHTML = `
       <a class="btn btn-primary mx-1 hover-effect-btn" href="index.html" role="button" style="margin-right: 10px;">Return to main page</a>
       <a href="_info/random_story.html" class="btn btn-success mx-1 hover-effect-btn" style="margin-right: 8px;">Pick a Random Story</a>
-      ${followOn ? `<a href="follow_on_story.html" class="btn btn-danger btn-sm">This is a series - Next</a>` : ''}
+      ${followOn ? `<a href="_info/followon.html?story=${encodeURIComponent(story)}" class="btn btn-danger btn-mx-1 hover-effect-btn">This is a series - Next</a>` : ''}
     `;
 
+    
     // 5. Build the story title with proper punctuation and text fixes
     function transformTitle(story) {
       let storyTitle = story;
