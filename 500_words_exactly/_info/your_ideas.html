@@ -53,14 +53,21 @@
                 </main>
 
                 <form method="POST">
-                    <label for="name">My name is:</label><br>
-                    <input type="text" id="name" name="name" value=""><br>
-                    
-                    <label for="age">My age is:</label><br>
-                    <input type="number" id="age" name="age" value=""><br>
-                    
-                    <label for="idea">This is my story:</label><br>
-                    <textarea id="idea" name="idea">I have an idea and it starts like this...</textarea>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="name">My name is:</label><br>
+                            <input type="text" class="form-control" id="name" name="name" value=""><br>
+                        </div>
+                        <div class="col">
+                            <label for="age">My age is:</label><br>
+                            <input type="number" class="form-control" id="age" name="age" value=""><br>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label for="idea">This is my story:</label><br>
+                        <textarea id="idea" class="form-control" name="idea">I have an idea and it starts like this...</textarea>
+                    </div>    
+                    <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
 
             </div>
