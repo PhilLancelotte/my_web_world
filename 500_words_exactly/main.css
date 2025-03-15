@@ -242,8 +242,6 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   right: 0;
   background: #fff; /* Set a background color to cover content underneath */
   z-index: 1000;    /* Ensure it stays on top */
-  /* Optional: Add a subtle shadow for separation */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* Footer link adjustments (if needed) */
