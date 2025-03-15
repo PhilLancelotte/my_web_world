@@ -96,20 +96,35 @@
     const storyTitle = transformTitle(story);
 
     // 6. Load the story content from a text file (simulate file_get_contents)
-    let contentPromise;
+    
     if (story !== 'No Story Available - Sorry') {
       contentPromise = fetch(`_story_files/your_ideas/${story}.json`)
         .then(response => {
           if (!response.ok) {
             throw new Error('Incorrect network response');
           }
-          return response.text();
+          return response.json(); // Parse JSON here
+        })
+        .then(jsonData => {
+          // Destructure the JSON object to extract the properties
+          const { age, name, story: storyContent } = jsonData;
+          console.log('Name:', name);
+          console.log('Age:', age);
+          console.log('Story:', storyContent);
+
+          return storyContent; // or any combined output
         })
         .catch(error => {
           console.error('Error fetching story content:', error);
           return '<p>Failed to load content.</p>';
         });
-    } else {
+    }
+    
+    
+    
+    
+    
+    else {
       contentPromise = Promise.resolve('<p>This is the default content.</p>');
     }
 
