@@ -108,9 +108,9 @@
         .then(jsonData => {
           // Destructure the JSON object to extract the properties
           const { age, name, story: storyContent } = jsonData;
-          console.log('Name:', name);
-          console.log('Age:', age);
-          console.log('Story:', storyContent);
+          console.log('name:', name);
+          console.log('age:', age);
+          console.log('story:', storyContent);
 
           return storyContent; // or any combined output
         })
