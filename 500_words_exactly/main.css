@@ -229,10 +229,6 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   width: auto;  /* Adjust if needed; or set a max-width */
 }
 
-.footer {
-
-}
-
 /* Fixed header styling */
 .fixed-top {
   position: fixed;
