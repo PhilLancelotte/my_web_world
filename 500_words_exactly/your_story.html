@@ -105,7 +105,7 @@
         })
         .then(jsonData => {
           // Use the correct key names (case-sensitive)
-          const { name, age, story: storyContent } = jsonData;
+          const { name, age, story: storyContent } = jsonData[0];
           console.log('name:', name);
           console.log('age:', age);
           console.log('story:', storyContent);
