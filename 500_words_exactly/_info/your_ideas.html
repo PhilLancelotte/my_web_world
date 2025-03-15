@@ -46,113 +46,119 @@
     </div>
     
     <div class="scrollable-container">
-        <div class="container my-2">
-            <div style="text-align: left;">
-
-              
-              <main class="content" id="content">
-                <!-- Content loaded via JavaScript will appear here -->
-              </main>
-              <button id="content">
-                <button id="toggleButton" class="btn btn-primary mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Write your story">I'm ready to write my story.</button>
-              </button>
-
-              <div class="container mt-5" id="story_form">
-                  <form id="storyForm">
-                      <div class="form-row">
-                          <div class="form-group col-md-6">
-                              <label for="name">My name is:</label>
-                              <input type="text" class="form-control" id="name" name="name" value="">
-                          </div>
-                          <div class="form-group col-md-6">
-                              <label for="age">My age is:</label>
-                              <input type="number" class="form-control" id="age" name="age" value="">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <label for="title">My story is called:</label>
-                          <textarea id="title" class="form-control" name="title">The name of my story is...</textarea>
-                      </div> 
-                      <div class="form-group">
-                          <label for="idea">And this is my story:</label>
-                          <textarea id="idea" class="form-control" name="idea">I have an idea and it starts like this...</textarea>
-                      </div>    
-                      <button type="submit" class="btn btn-primary">Save It! & Send It!</button>
-                  </form>
+      <div class="container my-2">
+        <div style="text-align: left;">
+          <!-- Main content section -->
+          <main class="content" id="content">
+            <!-- Content loaded via JavaScript will appear here -->
+          </main>
+          
+          <!-- Toggle button (removed the extra wrapping button with id="content") -->
+          <button id="toggleButton" class="btn btn-primary mx-1 hover-effect-btn" 
+                  data-bs-toggle="tooltip" title="Write your story">
+            I'm ready to write my story.
+          </button>
+    
+          <!-- Story form (hidden by default) -->
+          <div class="container mt-5" id="story_form" style="display: none;">
+            <form id="storyForm">
+              <!-- Use Bootstrap's row class for layout -->
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">My name is:</label>
+                  <input type="text" class="form-control" id="name" name="name" value="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="age">My age is:</label>
+                  <input type="number" class="form-control" id="age" name="age" value="">
+                </div>
               </div>
-            </div>
+              <div class="form-group mt-3">
+                <label for="title">My story is called:</label>
+                <textarea id="title" class="form-control" name="title">The name of my story is...</textarea>
+              </div> 
+              <div class="form-group mt-3">
+                <label for="idea">And this is my story:</label>
+                <textarea id="idea" class="form-control" name="idea">I have an idea and it starts like this...</textarea>
+              </div>    
+              <button type="submit" class="btn btn-primary mt-3">Save It! & Send It!</button>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
     
     <div class="d-flex align-items-center justify-content-center"> 
-        <a href="https://www.bbc.co.uk/teach/500-words" style="margin-right: 50px;">500 words - BBC</a>
-        <a href="https://www.storycubes.com/en/">Rory's story cubes</a>
+      <a href="https://www.bbc.co.uk/teach/500-words" style="margin-right: 50px;">500 words - BBC</a>
+      <a href="https://www.storycubes.com/en/">Rory's story cubes</a>
     </div>  
-
+    
     <script>
-        // When the document is loaded, fetch the text file and update the content
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch("your_ideas.txt")
-                .then(response => response.text())
-                .then(data => {
-                    // Convert newline characters to <br> tags
-                    const contentWithBreaks = data.replace(/\n/g, "<br>");
-                    document.getElementById("content").innerHTML = contentWithBreaks;
-                })
-                .catch(error => {
-                    console.error("Error fetching the file:", error);
-                    document.getElementById("content").innerHTML = "Failed to load content.";
-                });
-        });
-
-        document.getElementById('storyForm').addEventListener('submit', function(e) {
-          e.preventDefault(); // Prevent the form from submitting traditionally
-
-          // Gather the form values
-          const name = document.getElementById('name').value;
-          const age = document.getElementById('age').value;
-          const title = document.getElementById('title').value;
-          const idea = document.getElementById('idea').value;
-
-          // Create the text content for the file and email
-          const content = `Name: ${name}\nAge: ${age}\nStory Title: ${title}\n\nStory:\n${idea}`;
-
-          // Create a Blob for the file download
-          const blob = new Blob([content], { type: 'text/plain' });
-          const downloadLink = document.createElement('a');
-          downloadLink.href = URL.createObjectURL(blob);
-          // Use the story title as file name, trimming and replacing spaces if needed
-          downloadLink.download = title.trim().replace(/\s+/g, '_') + '.txt';
-          downloadLink.click();  // Trigger the download
-
-          // Construct the mailto link with the content as the body
-          const recipient = "bassjuggler@gmail.com"; // Replace with your email address
-          const subject = title; // Or any subject you like
-          const body = encodeURIComponent(content);
-
-          // Create the mailto URL and open the default mail client
-          const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${body}`;
-          window.location.href = mailtoLink;
-
-          // Optionally, revoke the object URL after a delay to free memory
-          setTimeout(() => {
-              URL.revokeObjectURL(downloadLink.href);
-          }, 100);
-        });
-
-        document.getElementById('toggleButton').addEventListener('click', function() {
-          var mainContent = document.getElementById('content');
-          var form = document.getElementById('story_form');
-
-          if (mainContent.style.display === 'none') {
-              mainContent.style.display = 'block';
-              form.style.display = 'none';
-          } else {
-              mainContent.style.display = 'none';
-              form.style.display = 'block';
-          }
-        });
-
+      // When the document is loaded, fetch the text file and update the content
+      document.addEventListener("DOMContentLoaded", function() {
+        fetch("your_ideas.txt")
+          .then(response => response.text())
+          .then(data => {
+              // Convert newline characters to <br> tags
+              const contentWithBreaks = data.replace(/\n/g, "<br>");
+              document.getElementById("content").innerHTML = contentWithBreaks;
+          })
+          .catch(error => {
+              console.error("Error fetching the file:", error);
+              document.getElementById("content").innerHTML = "Failed to load content.";
+          });
+      });
+    
+      // Form submission handling
+      document.getElementById('storyForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the form from submitting traditionally
+    
+        // Gather the form values
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const title = document.getElementById('title').value;
+        const idea = document.getElementById('idea').value;
+    
+        // Create the text content for the file and email
+        const content = `Name: ${name}\nAge: ${age}\nStory Title: ${title}\n\nStory:\n${idea}`;
+    
+        // Create a Blob for the file download
+        const blob = new Blob([content], { type: 'text/plain' });
+        const downloadLink = document.createElement('a');
+        downloadLink.href = URL.createObjectURL(blob);
+        // Use the story title as file name, trimming and replacing spaces if needed
+        downloadLink.download = title.trim().replace(/\s+/g, '_') + '.txt';
+        downloadLink.click();  // Trigger the download
+    
+        // Construct the mailto link with the content as the body
+        const recipient = "bassjuggler@gmail.com"; // Replace with your email address
+        const subject = title; // Or any subject you like
+        const body = encodeURIComponent(content);
+    
+        // Create the mailto URL and open the default mail client
+        const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${body}`;
+        window.location.href = mailtoLink;
+    
+        // Optionally, revoke the object URL after a delay to free memory
+        setTimeout(() => {
+          URL.revokeObjectURL(downloadLink.href);
+        }, 100);
+      });
+    
+      // Toggle between content and form display
+      document.getElementById('toggleButton').addEventListener('click', function() {
+        const mainContent = document.getElementById('content');
+        const form = document.getElementById('story_form');
+    
+        // Toggle display: if form is hidden, show it and hide content; else, reverse.
+        if (window.getComputedStyle(mainContent).display !== 'none') {
+          mainContent.style.display = 'none';
+          form.style.display = 'block';
+        } else {
+          mainContent.style.display = 'block';
+          form.style.display = 'none';
+        }
+      });
     </script>
 </body>
 </html>
