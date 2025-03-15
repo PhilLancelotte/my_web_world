@@ -258,5 +258,5 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
 /* Optional: Style your main content container */
 .main-content {
   /* Adjust the margin-top to be at least the height of the fixed header */
-  margin-top: 150px;
+  margin-top: 300px;
 }
