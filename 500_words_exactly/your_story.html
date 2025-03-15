@@ -19,9 +19,9 @@
 </head>
 <body>
   <div class="container text-center my-3">
-    <h1>
+    <h1 id="page-title">
       <a>
-      <img src="_story_images/500_title.png" alt="500_title" class="img-fluid" style="height:5%vh;">
+        <img src="_story_images/500_title.png" alt="500_title" class="img-fluid" style="height:5%vh;">
         <span class="visually-hidden">Webpage header image</span>
       </a>
     </h1>
@@ -118,13 +118,7 @@
           console.error('Error fetching story content:', error);
           return '<p>Failed to load content.</p>';
         });
-    }
-    
-    
-    
-    
-    
-    else {
+    } else {
       contentPromise = Promise.resolve('<p>This is the default content.</p>');
     }
 
