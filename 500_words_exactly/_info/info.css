@@ -1,44 +1,44 @@
 body { font: 14px sans-serif; }
-/* .wrapper { width: 1800px; padding: 20px; } */
+.wrapper { width: 1800px; padding: 20px; }
 .wrapperS { font: 18px sans-serif; width: 360px; padding: 20px; }
-/* .button-container { display: inline; } */
-/* .grid-cell {
+.button-container { display: inline; } */
+.grid-cell {
     display: flex;
     align-items: center;
     justify-content: center;
-} */
-/* .footer {
+}
+.footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
-} */
+}
 .header {
-    /* display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center; */
-    padding: 15px; /* Add some padding for spacing */
+    text-align: center;
+    padding: 15px; 
 }
-/* .header h1 {
+.header h1 {
     font-size: 40px;
     color: #9bbb59;
     margin: 0;
-} */
+}
 .header span {
     font-size: 20px;
 }
 .header a {
     margin-left: 20px;
 }
-/* .col-lg-3 a {
+.col-lg-3 a {
     display: block; 
-} */
-/* .col-2-4 {
+}
+.col-2-4 {
     flex: 0 0 20%;
     max-width: 20%;
-} */
+}
 .box {
     display: flex;
     flex-direction: column;
@@ -49,12 +49,12 @@ body { font: 14px sans-serif; }
 .box img {
     height: 160px;
 }
-/* .box h4 {
+.box h4 {
     margin: 0;
-} */
-/* .hover-effect {
+}
+.hover-effect {
     transition: transform 0.2s ease;
-} */
+}
 .hover-effect:hover {
     transform: scale(1.1);
 }
