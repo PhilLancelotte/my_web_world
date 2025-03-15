@@ -52,11 +52,10 @@
               
               <main class="content" id="content">
                 <!-- Content loaded via JavaScript will appear here -->
+                <button id="toggleButton" class="btn btn-primary mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Write your story">I'm ready to write my story.</button>
               </main>
 
-              <button id="toggleButton">I'm ready to write my story.</button>
-
-              <div class="container mt-5">
+              <div class="container mt-5" id="story_form">
                   <form id="storyForm">
                       <div class="form-row">
                           <div class="form-group col-md-6">
@@ -79,8 +78,6 @@
                       <button type="submit" class="btn btn-primary">Save It! & Send It!</button>
                   </form>
               </div>
-
-
             </div>
         </div>
     </div>
@@ -143,7 +140,7 @@
 
         document.getElementById('toggleButton').addEventListener('click', function() {
           var mainContent = document.getElementById('content');
-          var container = document.querySelector('.container');
+          var container = document.getElementById('story_form');
 
           if (mainContent.style.display === 'none') {
               mainContent.style.display = 'block';
