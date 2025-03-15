@@ -40,15 +40,14 @@
   </div>
 
   <script>
-    // 1. Get the "story" parameter from the URL (e.g. story.html?story=Fog)
+    // 1. Get the "story" parameter from the URL
     const params = new URLSearchParams(window.location.search);
     let story = params.get('story');
     if (!story) {
       story = 'No Story Available - Sorry';
     }
-    // Simulate storing in session by using sessionStorage
     sessionStorage.setItem('story', story);
-
+  
     // 2. Determine follow-on flag based on specific story names
     let followOn = false;
     const followStories = [
@@ -59,11 +58,11 @@
     if (followStories.includes(story)) {
       followOn = true;
     }
-
+  
     // 3. Set the document title
     document.title = story;
     document.getElementById('page-title').textContent = story;
-
+  
     // 4. Render Navigation Buttons
     const navDiv = document.getElementById('navigation');
     navDiv.innerHTML = `
@@ -71,8 +70,7 @@
       <a href="_info/random_story.html" class="btn btn-success mx-1 hover-effect-btn" style="margin-right: 8px;">Pick a Random Story</a>
       ${followOn ? `<a href="_info/followon.html?story=${encodeURIComponent(story)}" class="btn btn-danger btn-mx-1 hover-effect-btn">This is a series - Next</a>` : ''}
     `;
-
-    
+  
     // 5. Build the story title with proper punctuation and text fixes
     function transformTitle(story) {
       let storyTitle = story;
@@ -94,25 +92,25 @@
       return storyTitle;
     }
     const storyTitle = transformTitle(story);
-
-    // 6. Load the story content from a text file (simulate file_get_contents)
-    
+  
+    // 6. Load the story content from a JSON file
+    let contentPromise;
     if (story !== 'No Story Available - Sorry') {
       contentPromise = fetch(`_story_files/your_ideas/${story}.json`)
         .then(response => {
           if (!response.ok) {
             throw new Error('Incorrect network response');
           }
-          return response.json(); // Parse JSON here
+          return response.json(); // Parse JSON
         })
         .then(jsonData => {
-          // Destructure the JSON object to extract the properties
-          const { age, name, story: storyContent } = jsonData;
+          // Use the correct key names (case-sensitive)
+          const { name, age, story: storyContent } = jsonData;
           console.log('name:', name);
           console.log('age:', age);
           console.log('story:', storyContent);
-
-          return storyContent; // or any combined output
+  
+          return storyContent; // Return the story text for display
         })
         .catch(error => {
           console.error('Error fetching story content:', error);
@@ -121,25 +119,29 @@
     } else {
       contentPromise = Promise.resolve('<p>This is the default content.</p>');
     }
-
-    // 7. After loading the content, inject the complete template into the page
+  
+    // 7. Inject the complete template into the page
     contentPromise.then(rawContent => {
-      // Replace newlines with <br> tags
-      const contentWithBreaks = rawContent.replace(/\n/g, '<br>');
-      const templateDiv = document.getElementById('template-content');
-      templateDiv.innerHTML = `
-        <header>
-          <h1>${storyTitle}</h1>
-        </header>
-        <div class="scrollable-container">
-          <div class="image_container">
-            ${story !== 'No Story Available - Sorry' ? `<img src="_story_images/${story}.png" alt="${story}" class="responsive" style="height:400px;">` : ''}
+      // Ensure rawContent is a string before calling replace()
+      if (typeof rawContent === 'string') {
+        const contentWithBreaks = rawContent.replace(/\n/g, '<br>');
+        const templateDiv = document.getElementById('template-content');
+        templateDiv.innerHTML = `
+          <header>
+            <h1>${storyTitle}</h1>
+          </header>
+          <div class="scrollable-container">
+            <div class="image_container">
+              ${story !== 'No Story Available - Sorry' ? `<img src="_story_images/${story}.png" alt="${story}" class="responsive" style="height:400px;">` : ''}
+            </div>
+            <main class="content">
+              ${contentWithBreaks}
+            </main>
           </div>
-          <main class="content">
-            ${contentWithBreaks}
-          </main>
-        </div>
-      `;
+        `;
+      } else {
+        console.error('rawContent is not a string:', rawContent);
+      }
     });
   </script>
 </body>
