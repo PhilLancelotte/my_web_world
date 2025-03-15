@@ -76,9 +76,9 @@
       let storyTitle = story;
       const questionStarters = ['Where', 'What', 'Why', 'Who', 'How', 'Can'];
       if (questionStarters.some(prefix => storyTitle.startsWith(prefix))) {
-        storyTitle += "?";
+        storyTitle += "? - ";
       } else {
-        storyTitle += ".";
+        storyTitle += " - ";
       }
       // Replace words with appropriate punctuation
       storyTitle = storyTitle.replace(/\bThats\b/g, "That's")
