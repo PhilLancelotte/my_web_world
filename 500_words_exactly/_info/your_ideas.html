@@ -52,8 +52,10 @@
               
               <main class="content" id="content">
                 <!-- Content loaded via JavaScript will appear here -->
-                <button id="toggleButton" class="btn btn-primary mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Write your story">I'm ready to write my story.</button>
               </main>
+              <button id="content">
+                <button id="toggleButton" class="btn btn-primary mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Write your story">I'm ready to write my story.</button>
+              </button>
 
               <div class="container mt-5" id="story_form">
                   <form id="storyForm">
@@ -140,14 +142,14 @@
 
         document.getElementById('toggleButton').addEventListener('click', function() {
           var mainContent = document.getElementById('content');
-          var container = document.getElementById('story_form');
+          var form = document.getElementById('story_form');
 
           if (mainContent.style.display === 'none') {
               mainContent.style.display = 'block';
-              container.style.display = 'none';
+              form.style.display = 'none';
           } else {
               mainContent.style.display = 'none';
-              container.style.display = 'block';
+              form.style.display = 'block';
           }
         });
 
