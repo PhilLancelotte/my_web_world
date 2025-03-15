@@ -157,16 +157,16 @@ h4 {
 
 
 .scrollable-container {
-  max-height: 65vh;
+  max-height: 60vh;
   overflow-y: auto;
-  padding: 15px;
+  padding: 10px;
 }
 
 .scrollable-container::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 .scrollable-container::-webkit-scrollbar-track {
-  background: rgb(252, 186, 186);
+  background: rgb(70, 70, 70);
 }
 .scrollable-container::-webkit-scrollbar-thumb {
   background-color: #888;
@@ -210,15 +210,4 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
 .below-header a:hover,
 .below-header a:focus {
   border-color: #007BFF;
-}
-
-#site-counter {
-  display: flex;
-  align-items: center;
-}
-
-#site-counter iframe {
-  border: none;
-  height: 50px;
-  width: auto;  /* Adjust if needed; or set a max-width */
 }
