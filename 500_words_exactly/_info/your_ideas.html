@@ -48,33 +48,38 @@
     <div class="scrollable-container">
         <div class="container my-2">
             <div style="text-align: left;">
-                <main class="content" id="content">
-                    <!-- Content loaded via JavaScript will appear here -->
-                </main>
 
-                <div class="container mt-5">
-                    <form id="storyForm">
+              
+              <main class="content" id="content">
+                <!-- Content loaded via JavaScript will appear here -->
+              </main>
+
+              <button id="toggleButton">I'm ready to write my story.</button>
+
+              <div class="container mt-5">
+                  <form id="storyForm">
                       <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="name">My name is:</label>
-                          <input type="text" class="form-control" id="name" name="name" value="">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="age">My age is:</label>
-                          <input type="number" class="form-control" id="age" name="age" value="">
-                        </div>
+                          <div class="form-group col-md-6">
+                              <label for="name">My name is:</label>
+                              <input type="text" class="form-control" id="name" name="name" value="">
+                          </div>
+                          <div class="form-group col-md-6">
+                              <label for="age">My age is:</label>
+                              <input type="number" class="form-control" id="age" name="age" value="">
+                          </div>
                       </div>
                       <div class="form-group">
-                        <label for="title">My story is called:</label>
-                        <textarea id="title" class="form-control" name="title">The name of my story is...</textarea>
+                          <label for="title">My story is called:</label>
+                          <textarea id="title" class="form-control" name="title">The name of my story is...</textarea>
                       </div> 
                       <div class="form-group">
-                        <label for="idea">And this is my story:</label>
-                        <textarea id="idea" class="form-control" name="idea">I have an idea and it starts like this...</textarea>
+                          <label for="idea">And this is my story:</label>
+                          <textarea id="idea" class="form-control" name="idea">I have an idea and it starts like this...</textarea>
                       </div>    
-                      <button type="submit" class="btn btn-primary">Save It! &amp; Send It!</button>
-                    </form>
-                  </div>
+                      <button type="submit" class="btn btn-primary">Save It! & Send It!</button>
+                  </form>
+              </div>
+
 
             </div>
         </div>
@@ -102,39 +107,52 @@
         });
 
         document.getElementById('storyForm').addEventListener('submit', function(e) {
-                e.preventDefault(); // Prevent the form from submitting traditionally
+          e.preventDefault(); // Prevent the form from submitting traditionally
 
-                // Gather the form values
-                const name = document.getElementById('name').value;
-                const age = document.getElementById('age').value;
-                const title = document.getElementById('title').value;
-                const idea = document.getElementById('idea').value;
+          // Gather the form values
+          const name = document.getElementById('name').value;
+          const age = document.getElementById('age').value;
+          const title = document.getElementById('title').value;
+          const idea = document.getElementById('idea').value;
 
-                // Create the text content for the file and email
-                const content = `Name: ${name}\nAge: ${age}\nStory Title: ${title}\n\nStory:\n${idea}`;
+          // Create the text content for the file and email
+          const content = `Name: ${name}\nAge: ${age}\nStory Title: ${title}\n\nStory:\n${idea}`;
 
-                // Create a Blob for the file download
-                const blob = new Blob([content], { type: 'text/plain' });
-                const downloadLink = document.createElement('a');
-                downloadLink.href = URL.createObjectURL(blob);
-                // Use the story title as file name, trimming and replacing spaces if needed
-                downloadLink.download = title.trim().replace(/\s+/g, '_') + '.txt';
-                downloadLink.click();  // Trigger the download
+          // Create a Blob for the file download
+          const blob = new Blob([content], { type: 'text/plain' });
+          const downloadLink = document.createElement('a');
+          downloadLink.href = URL.createObjectURL(blob);
+          // Use the story title as file name, trimming and replacing spaces if needed
+          downloadLink.download = title.trim().replace(/\s+/g, '_') + '.txt';
+          downloadLink.click();  // Trigger the download
 
-                // Construct the mailto link with the content as the body
-                const recipient = "bassjuggler@gmail.com"; // Replace with your email address
-                const subject = title; // Or any subject you like
-                const body = encodeURIComponent(content);
+          // Construct the mailto link with the content as the body
+          const recipient = "bassjuggler@gmail.com"; // Replace with your email address
+          const subject = title; // Or any subject you like
+          const body = encodeURIComponent(content);
 
-                // Create the mailto URL and open the default mail client
-                const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${body}`;
-                window.location.href = mailtoLink;
+          // Create the mailto URL and open the default mail client
+          const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${body}`;
+          window.location.href = mailtoLink;
 
-                // Optionally, revoke the object URL after a delay to free memory
-                setTimeout(() => {
-                    URL.revokeObjectURL(downloadLink.href);
-                }, 100);
-            });
+          // Optionally, revoke the object URL after a delay to free memory
+          setTimeout(() => {
+              URL.revokeObjectURL(downloadLink.href);
+          }, 100);
+        });
+
+        document.getElementById('toggleButton').addEventListener('click', function() {
+          var mainContent = document.getElementById('content');
+          var container = document.querySelector('.container');
+
+          if (mainContent.style.display === 'none') {
+              mainContent.style.display = 'block';
+              container.style.display = 'none';
+          } else {
+              mainContent.style.display = 'none';
+              container.style.display = 'block';
+          }
+        });
 
     </script>
 </body>
