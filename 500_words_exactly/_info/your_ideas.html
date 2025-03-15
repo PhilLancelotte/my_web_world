@@ -54,10 +54,7 @@
           </main>
           
           <!-- Toggle button (removed the extra wrapping button with id="content") -->
-          <button id="toggleButton" class="btn btn-primary mx-1 hover-effect-btn" 
-                  data-bs-toggle="tooltip" title="Write your story">
-            I'm ready to write my story.
-          </button>
+          <button id="toggleButton" class="btn btn-primary mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Write your story">I'm ready to write my story.</button>
     
           <!-- Story form (hidden by default) -->
           <div class="container mt-5" id="story_form" style="display: none;">
@@ -149,13 +146,16 @@
       document.getElementById('toggleButton').addEventListener('click', function() {
         const mainContent = document.getElementById('content');
         const form = document.getElementById('story_form');
+        const button = document.getElementById('toggleButton');
     
         // Toggle display: if form is hidden, show it and hide content; else, reverse.
         if (window.getComputedStyle(mainContent).display !== 'none') {
           mainContent.style.display = 'none';
+          button.style.display = 'none';
           form.style.display = 'block';
         } else {
           mainContent.style.display = 'block';
+          button.style.display = 'block';
           form.style.display = 'none';
         }
       });
