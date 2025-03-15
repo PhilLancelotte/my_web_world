@@ -1,12 +1,27 @@
-body { font: 14px sans-serif; }
-.wrapper { width: 1800px; padding: 20px; }
-.wrapperS { font: 18px sans-serif; width: 360px; padding: 20px; }
-.button-container { display: inline; }
+body { 
+    font: 14px sans-serif; 
+
+}
+
+.wrapper { 
+    width: 1800px; 
+    padding: 20px; 
+}
+.wrapperS { 
+    font: 18px sans-serif; 
+    width: 360px; 
+    padding: 20px; }
+
+.button-container { 
+    display: inline; 
+}
+
 .grid-cell {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .footer {
     position: fixed;
     left: 0;
@@ -19,7 +34,7 @@ body { font: 14px sans-serif; }
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 15px; /* Add some padding for spacing */
+    padding: 5px; /* Add some padding for spacing */
 }
 .header h1 {
     font-size: 40px;
@@ -30,7 +45,7 @@ body { font: 14px sans-serif; }
     font-size: 20px;
 }
 .header a {
-    margin-left: 20px;
+    margin-left: 10px; /* previously 20*/
 }
 .col-lg-3 a {
     display: block; /* This will make the link take up the full width */
@@ -39,6 +54,7 @@ body { font: 14px sans-serif; }
     flex: 0 0 20%;
     max-width: 20%;
 }
+
 .box {
     display: flex;
     flex-direction: column;
