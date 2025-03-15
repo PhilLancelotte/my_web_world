@@ -161,7 +161,7 @@ h4 {
 
 .scrollable-container {
   max-height: 60vh;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   padding: 10px;
 }
 
@@ -235,4 +235,28 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   padding: 10px 0;
   text-align: center;
   z-index: 1000;    /* to ensure it stays on top */
+}
+
+/* Fixed header styling */
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff; /* Set a background color to cover content underneath */
+  z-index: 1000;    /* Ensure it stays on top */
+  /* Optional: Add a subtle shadow for separation */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Footer link adjustments (if needed) */
+.footer-links {
+  margin: 0;
+  padding: 5px 0;
+}
+
+/* Optional: Style your main content container */
+.main-content {
+  /* Adjust the margin-top to be at least the height of the fixed header */
+  margin-top: 150px;
 }
