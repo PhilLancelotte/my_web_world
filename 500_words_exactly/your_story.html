@@ -91,6 +91,7 @@
                              .replace(/\bDihydrogen\b/g, "Di-Hydrogen");
       return storyTitle;
     }
+
     const storyTitle = transformTitle(story);
   
     // 6. Load the story content from a JSON file
@@ -104,31 +105,34 @@
           return response.json(); // Parse JSON
         })
         .then(jsonData => {
-          // Use the correct key names (case-sensitive)
-          const { name, age, story: storyContent } = jsonData[0];
+          // If your JSON is an array, adjust accordingly:
+          const data = Array.isArray(jsonData) ? jsonData[0] : jsonData;
+          // Destructure using lowercase keys
+          const { name, age, story: storyContent } = data;
           console.log('name:', name);
           console.log('age:', age);
           console.log('story:', storyContent);
-  
-          return storyContent; // Return the story text for display
+
+          // Return an object with all values
+          return { storyContent, name, age };
         })
         .catch(error => {
           console.error('Error fetching story content:', error);
-          return '<p>Failed to load content.</p>';
+          return { storyContent: '<p>Failed to load content.</p>', name: '', age: '' };
         });
     } else {
-      contentPromise = Promise.resolve('<p>This is the default content.</p>');
+      contentPromise = Promise.resolve({ storyContent: '<p>This is the default content.</p>', name: '', age: '' });
     }
-  
-    // 7. Inject the complete template into the page
-    contentPromise.then(rawContent => {
-      // Ensure rawContent is a string before calling replace()
-      if (typeof rawContent === 'string') {
-        const contentWithBreaks = rawContent.replace(/\n/g, '<br>');
+
+    // 7. After loading the content, inject the complete template into the page
+    contentPromise.then(({ storyContent, name, age }) => {
+      if (typeof storyContent === 'string') {
+        // Replace newlines with <br> tags
+        const contentWithBreaks = storyContent.replace(/\n/g, '<br>');
         const templateDiv = document.getElementById('template-content');
         templateDiv.innerHTML = `
           <header>
-            <h1>${storyTitle}</h1>
+            <h1>${storyTitle} by ${name} aged ${age}</h1>
           </header>
           <div class="scrollable-container">
             <div class="image_container">
@@ -140,7 +144,7 @@
           </div>
         `;
       } else {
-        console.error('rawContent is not a string:', rawContent);
+        console.error('storyContent is not a string:', storyContent);
       }
     });
   </script>
