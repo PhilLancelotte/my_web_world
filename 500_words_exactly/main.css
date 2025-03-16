@@ -300,8 +300,8 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
     z-index: 1000;
   }
   .header {
-    margin: 5px;
-    padding: 5px;
+    margin: o;
+    padding: 0;
     font-size: 18px; /* Slightly smaller font size */
   }
   h1 {
@@ -313,5 +313,13 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   }
   .main-content {
     margin-top: 100px; /* smaller margin-top in landscape */
+  }
+
+  .button-container {
+    display: flex;
+    flex-wrap: nowrap; /* Force buttons onto one line */
+    gap: 4px; /* Optional, controls spacing between buttons */
+    justify-content: flex-start; /* Align buttons to left */
+    align-items: center; /* Vertically centers buttons */
   }
 }
