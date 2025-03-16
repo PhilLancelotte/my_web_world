@@ -240,7 +240,7 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   z-index: 1000;    /* Ensure it stays on top */
 }
 
-.main_content {
+.main-content {
   margin-top: 390px;
 }
 .main-content-story {
