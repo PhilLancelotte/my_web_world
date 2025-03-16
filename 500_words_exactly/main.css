@@ -242,6 +242,7 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
 
 .main-content {
   margin-top: 390px;
+  padding-bottom: 8px;
 }
 .main-content-story {
   margin-top: 290px;
