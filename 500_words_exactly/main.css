@@ -243,6 +243,9 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
 .main_content {
   margin-top: 390px;
 }
+.main_content-story {
+  margin-top: 290px;
+}
 
 
 /* Footer link adjustments (if needed) */
@@ -303,6 +306,9 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   }
   .main-content {
     margin-top: 290px;
+  }
+  .main-content-story {
+    margin-top: 140px;
   }
 }
 
