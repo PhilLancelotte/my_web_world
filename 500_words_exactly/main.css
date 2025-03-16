@@ -251,7 +251,8 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   padding: 5px 0;
 }
 
-@media only screen and (max-width: 768px) {
+/* Portrait mode - Mobile devices */
+@media only screen and (max-width: 768px) and (orientation: portrait) {
 
   .main-container {
     flex-direction: column;
@@ -263,12 +264,12 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   }
   .footer {
     font-size: 12px;
-    z-index: 1000;    /* to ensure it stays on top */
+    z-index: 1000;
   }
   .header {
-  margin: 0;
-  padding: 0;
-  font-size: 20px;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
   }
   h1 {
     font-size: 20px;
@@ -276,9 +277,41 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   .container {
     margin: 0 auto;
     padding: 0;
-}
-.main-content {
-  margin-top: 290px;
+  }
+  .main-content {
+    margin-top: 290px;
+  }
 }
 
+/* Landscape mode - Mobile devices */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+
+  .main-container {
+    flex-direction: row; /* horizontal layout for landscape */
+    align-items: flex-start;
+  }
+  .container-left,
+  .container-right {
+    flex: 0 0 50%; /* side-by-side layout */
+    margin: 5px;
+  }
+  .footer {
+    font-size: 10px; /* Slightly smaller footer if desired */
+    z-index: 1000;
+  }
+  .header {
+    margin: 5px;
+    padding: 5px;
+    font-size: 18px; /* Slightly smaller font size */
+  }
+  h1 {
+    font-size: 18px; /* Adjust as necessary */
+  }
+  .container {
+    margin: 0 auto;
+    padding: 5px;
+  }
+  .main-content {
+    margin-top: 100px; /* smaller margin-top in landscape */
+  }
 }
