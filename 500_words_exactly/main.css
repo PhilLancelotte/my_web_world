@@ -219,17 +219,6 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   border-color: #007BFF;
 }
 
-#site-counter {
-  display: flex;
-  align-items: center;
-}
-
-#site-counter iframe {
-  border: none;
-  height: 50px;
-  width: auto;  /* Adjust if needed; or set a max-width */
-}
-
 /* Fixed header styling */
 .fixed-top {
   position: fixed;
