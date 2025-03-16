@@ -342,6 +342,10 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
     margin-top: 100px; /* smaller margin-top in landscape */
   }
 
+  .main_content-story {
+    margin-top: 290px;
+  }
+
   .button-container {
     display: flex;
     flex-wrap: nowrap; /* Force buttons onto one line */
