@@ -271,13 +271,6 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   align-items: center;
 }
 
-/* Explicitly show only on small screens in landscape mode */
-@media only screen and (orientation: landscape) and (max-device-width: 1024px) {
-  #orientation-warning {
-    display: flex !important;
-  }
-}
-
 
 /* Portrait mode - Mobile devices */
 @media only screen and (max-width: 768px) and (orientation: portrait) {
@@ -356,5 +349,12 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
     gap: 4px; /* Optional, controls spacing between buttons */
     justify-content: flex-start; /* Align buttons to left */
     align-items: center; /* Vertically centers buttons */
+  }
+}
+
+/* Explicitly show only on small screens in landscape mode */
+@media only screen and (orientation: landscape) and (max-device-width: 1024px) {
+  #orientation-warning {
+    display: flex !important;
   }
 }
