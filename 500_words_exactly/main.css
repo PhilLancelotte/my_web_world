@@ -302,6 +302,8 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   }
   .main-content {
     margin-top: 290px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
   }
   .main-content-story {
     margin-top: 140px;
