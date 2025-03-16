@@ -35,46 +35,51 @@
   </div>
   
   <!-- Responsive Grid for Stories -->
-  <div class="main-content" style="margin-top: 325px;"></div>
-    <div class="scrollable-container1">
+  <div class="main-content" style="margin-top: 305px;">
+    <div class="scrollable-container">
       <div class="container">
-        <div class="row">
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 box hover-effect">
-            <a href="your_story.html?story=The Coolest Spaceman" aria-label="A story called The Coolest Spaceman, Written by AI Jake">
-              <span class="visually-hidden">A story called The Coolest Spaceman, Written by AI Jake</span>
-              <img src="_story_images/The Coolest Spaceman.png" alt="The Coolest Spaceman" class="img-fluid hover-effect">
-            </a>
-            <h3>The Coolest Spaceman</h3><h4>by Jake</h4>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 box hover-effect">
-            <a href="your_story.html?story=Lucys Banana" aria-label="A story called Lucy's Banana, Written by AI Lucy">
-              <span class="visually-hidden">A story called Lucy's Banana, Written by AI Lucy</span>
-              <img src="_story_images/Lucys Banana.png" alt="Lucys Banana" class="img-fluid hover-effect">
-            </a>
-            <h3>Lucy's Banana</h3><h4>by Lucy</h4>
-          </div>
-
-          <!-- Add additional story columns similarly -->
-          <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-3 box hover-effect">
-            <a href="your_story.html?story=FILENAME_CHANGETHIS" aria-label="A story called ______ about ____, Written by ________">
-              <span class="visually-hidden">A story called ______ about ____, Written by ________</span>
-              <img src="../_story_images/FILENAME_CHANGETHIS.png" alt="FILENAME_CHANGETHIS" class="img-fluid hover-effect">
-            </a>
-            <h3>FILENAME_CHANGETHIS</h3>
-          </div> -->
-
+        <div class="row" id="stories-container">
+              <!-- Stories appear here-->
         </div>
       </div>
     </div>
   </div>
   <br>
   <div class="footer d-flex align-items-center justify-content-evenly">
-      <a href="https://www.bbc.co.uk/teach/500-words">500 words - BBC</a>
-      <a href="https://www.storycubes.com/en/">Rory's story cubes</a>
-      <a href="_info/sitemap.html">Site Map</a>
-    </div>
+      <a href="https://www.bbc.co.uk/teach/500-words" aria-label="A button to the official BBC 500 words page">500 words - BBC</a>
+      <a href="https://www.storycubes.com/en/" aria-label="A button to take you to Rory's story cubes page">Rory's story cubes</a>
+      <a href="_info/sitemap.html" aria-label="A button to take you to an image of the sitemap">Site Map</a>
+  </div>
+  <br>
+
+<script>
+
+  const stories = [
+    { file: "The Coolest Spaceman", title: "The Coolest Spaceman", description: "about a visitor from mars", name: "AI Jake", age: "10" },
+    { file: "Lucys Banana", title: "Lucy's Banana", description: "about a friend that is a banana", name: "AI Lucy", age: "6" },
+    
+    // Additional stories commented out in original HTML (optional to include):
+    // { title: "It's exactly where I left it", description: "about Kevin", image: "Its exactly where I left it.png" },
+    // { title: "Can you make it big again?", description: "about Kevin", image: "Can you make it big again.png" },
+    // { title: "That's a relief", description: "about Kevin", image: "Thats a relief.png" },
+  ];
+  
+    function renderStories(stories) {
+      const container = document.getElementById('stories-container');
+      container.innerHTML = stories.map(story => `
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 box hover-effect">
+          <a href="story.html?story=${encodeURIComponent(story.file)}">
+            <img src="_story_images/${story.file}.png" alt="Cover image for the story ${story.title}" class="img-fluid hover-effect">
+            <h3 class="visually-hidden">A story called ${story.title}, ${story.description}, Written by Phil Lancelotte</h3>
+          </a>
+          <h3 aria-hidden="true">${story.title}</h3>
+        </div>
+      `).join('');
+    }
+    
+    // Call the function to render your stories when the page loads
+    document.addEventListener('DOMContentLoaded', () => renderStories(stories));
+  </script>
 
 </body>
 </html>
