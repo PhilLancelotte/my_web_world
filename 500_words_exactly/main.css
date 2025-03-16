@@ -240,6 +240,11 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   z-index: 1000;    /* Ensure it stays on top */
 }
 
+.main_content {
+  margin-top: 390px;
+}
+
+
 /* Footer link adjustments (if needed) */
 .footer-links {
   margin: 0;
@@ -271,5 +276,8 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   .container {
     margin: 0 auto;
     padding: 0;
+}
+.main_content {
+  margin-top: 290px;
 }
 }
