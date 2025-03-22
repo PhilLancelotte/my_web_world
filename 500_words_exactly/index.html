@@ -172,9 +172,7 @@ function renderStories(stories) {
           <img src="_story_images/${story.file}.png" alt="Cover image for the story ${story.title}" class="img-fluid hover-effect">
           <h3 class="visually-hidden">A story called ${story.title}, ${story.description}, Written by Phil Lancelotte</h3>
         </a>
-        <h3 aria-hidden="true">
-          ${story.title}
-          <span id="like-display-${story.file}"><!-- Like count goes here --></span>
+        <h3 aria-hidden="true">${story.title}<span id="like-display-${story.file}" style="white-space: nowrap;"></span>
         </h3>
       </div>
     `).join('');
