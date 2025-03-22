@@ -90,10 +90,18 @@
                 <h5><label for="title">My story is called:</label></h5>
                 <input type="title" class="form-control" id="title" name="name" value="The name of my story is...">
               </div> 
-              <div class="form-group mt-3">
-                <h5><label for="idea">And this is my story:</label></h5>
-                <textarea id="idea" class="form-control" name="idea">I have an idea and it starts like this...</textarea>
-              </div>    
+              <div class="row">
+                <div class="form-group col-md-9">
+                  <h5><label for="idea">And this is my story:</label></h5>
+                  <textarea id="idea" class="form-control" name="idea">I have an idea and it starts like this...</textarea>
+                </div>    
+                <div class="form-group col-md-3">
+                  <input type="radio" id="i_do" name="who_do" value="This is ready to go.">
+                  <label for="html">I have writen it</label><br>
+                  <input type="radio" id="you_do" name="who_do" value="I would like you to write it please.">
+                  <label for="css">I want you to write it please.</label><br>
+                </div>  
+              </div>
               <button type="submit" class="btn btn-primary mt-3">Save It! & Send It!</button>
             </form>
           </div>
@@ -134,9 +142,10 @@
         const age = document.getElementById('age').value;
         const title = document.getElementById('title').value;
         const idea = document.getElementById('idea').value;
+        const who_do = document.getElementsByName('who_do').value
     
         // Create the text content for the file and email
-        const content = `Name: ${name}\nAge: ${age}\nStory Title: ${title}\n\nStory:\n${idea}`;
+        const content = `Name: ${name}\nAge: ${age}\nStory Title: ${title}\n\nStory:\n${idea}\nWho is writing it?: ${who_do}`;
     
         // Create a Blob for the file download
         const blob = new Blob([content], { type: 'text/plain' });
