@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="imagetoolbar" content="no" />
-    <!-- Bootstrap CDN server link -->
+    <!-- Bootstrap local link -->
     <link href="../../_bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="../main.css" rel="stylesheet">
-    <!-- <link href="info.css" rel="stylesheet" type="text/css"> -->
     <!-- Prevent caching -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
@@ -22,16 +21,18 @@
 <style>
 
 .form-control {
-  font-size: 1.25rem; /* or any size you prefer */
+  font-size: 1.25rem; 
 }
 
 </style>
 
 
 <body>
+  <!-- prevents small screens showing in landscape -->
   <div class="orientation-warning">
     Please rotate your device to portrait mode for the best experience.
   </div>
+  <!-- fixes the top title image in place -->
   <div class="fixed-top">
     <div class="header container text-center my-3">
       <h1>
@@ -41,6 +42,7 @@
       </h1>
     </div>
 
+    <!-- places buttons in one plaace -->
     <div class="container text-center">
         <div class="button-container">
           <a href="../_info/500_words.html" class="btn btn-secondary mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Learn more about 500 words">About 500 Words</a>
@@ -48,7 +50,6 @@
           <a href="../_info/acknowledgements.html" class="btn btn-warning mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="These people deserve some thanks.">Acknowledgements</a>
           <a href="../_info/cast1000.html" class="btn btn-primary mx-1 hover-effect-btn">Cast of a Thousand</a>
           <a href="../_info/random_story.html" class="btn btn-success mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Complete pot luck.">Random Story</a>
-          <!-- <a href="_info/add_your_own.php" class="btn btn-warning mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Do you have an idea for a story?">Add your own Story</a> -->
           <a href="../_info/future_stuff.html" class="btn btn-warning mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Things i'm working on">Future Stories</a>
           <a href="../" class="btn btn-primary mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Return to main page">Return to main page</a>
         </div>
@@ -161,8 +162,8 @@
         downloadLink.click();  // Trigger the download
     
         // Construct the mailto link with the content as the body
-        const recipient = "bassjuggler@gmail.com"; // Replace with your email address
-        const subject = title; // Or any subject you like
+        const recipient = "bassjuggler@gmail.com";
+        const subject = title; 
         const body = encodeURIComponent(content);
     
         // Create the mailto URL and open the default mail client
