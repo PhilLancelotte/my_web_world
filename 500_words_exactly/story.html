@@ -167,7 +167,7 @@
 
 
 // Function to increment the like count
-function likeStory(story) {
+window.likeStory = function(story) {
   const storyRef = db.collection('stories').doc(story);
   storyRef.update({
     like_count: firebase.firestore.FieldValue.increment(1)
@@ -178,10 +178,9 @@ function likeStory(story) {
   .catch(error => {
     console.error('Error updating like count: ', error);
   });
-}
+};
 
-// Function to decrement the like count
-function unlikeStory(story) {
+window.unlikeStory = function(story) {
   const storyRef = db.collection('stories').doc(story);
   storyRef.update({
     like_count: firebase.firestore.FieldValue.increment(-1)
@@ -192,7 +191,7 @@ function unlikeStory(story) {
   .catch(error => {
     console.error('Error updating like count: ', error);
   });
-}
+};
 </script>
 </body>
 </html>
