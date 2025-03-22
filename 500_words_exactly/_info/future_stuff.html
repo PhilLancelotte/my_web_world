@@ -31,18 +31,8 @@
           </h1>
         </div>
 
-        <div class="container text-center">
-            <div class="button-container">
-                <a href="../_info/500_words.html" class="btn btn-secondary mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Learn more about 500 words">About 500 Words</a>
-                <a href="../_info/foreward.html" class="btn btn-danger mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="A bit of an intro.">Foreward</a>
-                <a href="../_info/acknowledgements.html" class="btn btn-warning mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="These people deserve some thanks.">Acknowledgements</a>
-                <a href="../_info/cast1000.html" class="btn btn-primary mx-1 hover-effect-btn">Cast of a Thousand</a>
-                <a href="../_info/random_story.html" class="btn btn-success mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Complete pot luck.">Random Story</a>
-                <a href="../your_index.html" class="btn btn-warning mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Things you worked on">All Your Stories</a>
-                <a href="../_info/future_stuff.html" class="btn btn-secondary mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Things i'm working on">Future Stories</a>
-                <a href="../" class="btn btn-primary mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Return to main page">Return to main page</a>
-            </div>
-        </div>
+        <!-- include standard buttons from seperate html file -->
+        <div id="standard-buttons-container"></div>
         
         <div class="d-flex align-items-center justify-content-center below-header"> 
             <h1 class="mb-0">Things I'm working on</h1>
@@ -83,6 +73,14 @@
                 document.getElementById("content").innerHTML = "Failed to load content.";
             });
     });
+
+    fetch('standard_buttons.html')
+            .then(response => response.text())
+            .then(html => {
+            document.getElementById('standard-buttons-container').innerHTML = html;
+            })
+            .catch(error => console.error('Error loading standard buttons:', error));
+
 </script>
 </body>
 </html>
