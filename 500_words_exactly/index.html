@@ -170,34 +170,15 @@ function renderStories(stories) {
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 box hover-effect">
         <a href="story.html?story=${encodeURIComponent(story.file)}">
           <img src="_story_images/${story.file}.png" alt="Cover image for the story ${story.title}" class="img-fluid hover-effect">
-          <h3 class="visually-hidden">A story called ${story.title}, ${story.description}, Written by Phil Lancelotte</h3>
+          <h4 class="visually-hidden">A story called ${story.title}, ${story.description}, Written by Phil Lancelotte</h4>
         </a>
-        <h3 aria-hidden="true" class="story-title">${story.title}<span id="like-display-${story.file}" style="white-space: nowrap;"></span>
+        <h3 aria-hidden="true">${story.title}<span id="like-display-${story.file}" style="white-space: nowrap;"></span>
         </h3>
       </div>
     `).join('');
   }
 
   document.addEventListener('DOMContentLoaded', () => renderStories(stories));
-
-  document.addEventListener("DOMContentLoaded", function() {
-    // Select all title elements
-    const titles = document.querySelectorAll('.story-title');
-    
-    titles.forEach(title => {
-      // Get computed styles for the element
-      const computedStyle = window.getComputedStyle(title);
-      let fontSize = parseFloat(computedStyle.fontSize);
-      const lineHeight = parseFloat(computedStyle.lineHeight) || fontSize * 1.2; // fallback if lineHeight isn't set
-      const maxHeight = lineHeight * 2; // maximum height for 2 lines
-      
-      // Decrease font size until the element fits within 2 lines
-      while (title.offsetHeight > maxHeight && fontSize > 10) {  // stop at 10px to avoid text becoming too small
-        fontSize -= 1;
-        title.style.fontSize = fontSize + "px";
-      }
-    });
-  });
 
 </script>
 
