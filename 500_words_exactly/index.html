@@ -139,7 +139,7 @@ window.stories = [
         // Default likeCount is 0 if no document exists or field is missing
         let likeCount = 0;
         if (docSnap.exists()) {
-          likeCount = docSnap.data().like_count || 0;
+          likeCount = (docSnap.data().like_count + docSnap.data().unlike_count) || 0;
         }
         // Get the corresponding placeholder element
         const likeDisplay = document.getElementById(`like-display-${story.file}`);
