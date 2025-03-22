@@ -147,7 +147,8 @@
         const age = document.getElementById('age').value;
         const title = document.getElementById('title').value;
         const idea = document.getElementById('idea').value;
-        const who_do = document.getElementsByName('who_do').value
+        const whoDoEl = document.querySelector('input[name="who_do"]:checked');
+        const who_do = whoDoEl ? whoDoEl.value : '';
     
         // Create the text content for the file and email
         const content = `Name: ${name}\nAge: ${age}\nStory Title: ${title}\n\nStory:\n${idea}\nWho is writing it?: ${who_do}`;
