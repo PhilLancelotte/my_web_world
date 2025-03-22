@@ -42,6 +42,8 @@
   <div class="container my-1">
     <div id="template-content">
       <!-- Content from template.php will be injected here -->
+      <button onclick="likeStory('${story}')">Like</button>
+      <button onclick="unlikeStory('${story}')">Unlike</button>
     </div>
   </div>
 </div>
@@ -134,8 +136,7 @@
           <main class="content">
             ${contentWithBreaks}
           </main>
-          <button onclick="likeStory('${story}')">Like</button>
-          <button onclick="unlikeStory('${story}')">Unlike</button>
+
         </div>
       `;
     });
