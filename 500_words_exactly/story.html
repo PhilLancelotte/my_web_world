@@ -159,10 +159,9 @@
 
 <!-- this API handles like/unlike for stories -->
 <script type="module">
-  // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-analytics.js";
   import { getFirestore, doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
+
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -179,38 +178,33 @@
     measurementId: "G-8629EV9H61"
   };
 
-  // Initialize Firebase
+  // Initialize Firebase and Firestore
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
   const db = getFirestore(app);
 
+  // Expose functions to the global scope
+  window.likeStory = function(story) {
+    const storyRef = doc(db, 'stories', story);
+    updateDoc(storyRef, { like_count: increment(1) })
+      .then(() => {
+        console.log(`Liked ${story}`);
+      })
+      .catch(error => {
+        console.error('Error updating like count: ', error);
+      });
+  };
 
-// Function to increment the like count
-window.likeStory = function(story) {
-  const storyRef = db.collection('stories').doc(story);
-  storyRef.update({
-    like_count: firebase.firestore.FieldValue.increment(1)
-  })
-  .then(() => {
-    console.log(`Liked ${story}`);
-  })
-  .catch(error => {
-    console.error('Error updating like count: ', error);
-  });
-};
+  window.unlikeStory = function(story) {
+    const storyRef = doc(db, 'stories', story);
+    updateDoc(storyRef, { like_count: increment(-1) })
+      .then(() => {
+        console.log(`Unliked ${story}`);
+      })
+      .catch(error => {
+        console.error('Error updating like count: ', error);
+      });
+  };
 
-window.unlikeStory = function(story) {
-  const storyRef = db.collection('stories').doc(story);
-  storyRef.update({
-    like_count: firebase.firestore.FieldValue.increment(-1)
-  })
-  .then(() => {
-    console.log(`Unliked ${story}`);
-  })
-  .catch(error => {
-    console.error('Error updating like count: ', error);
-  });
-};
 </script>
 </body>
 </html>
