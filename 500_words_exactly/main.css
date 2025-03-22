@@ -347,6 +347,6 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
 /* Explicitly show only on small screens in landscape mode */
 @media only screen and (orientation: landscape) and (max-device-width: 1024px) {
   .orientation-warning {
-    display: flex !important;
+    display: block !important;
   }
 }
