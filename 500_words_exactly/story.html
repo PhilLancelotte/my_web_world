@@ -134,9 +134,65 @@
           <main class="content">
             ${contentWithBreaks}
           </main>
+          <button onclick="likeStory('${story}')">Like</button>
+          <button onclick="unlikeStory('${story}')">Unlike</button>
         </div>
       `;
     });
   </script>
+
+<!-- this API handles like/unlike for stories -->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBUFP5TU2htdupxb4wVPpQodIUSxC_cDbY",
+    authDomain: "words-b33f3.firebaseapp.com",
+    projectId: "words-b33f3",
+    storageBucket: "words-b33f3.firebasestorage.app",
+    messagingSenderId: "538544822188",
+    appId: "1:538544822188:web:1d776fde1ae5b312824c09",
+    measurementId: "G-8629EV9H61"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+
+// Function to increment the like count
+function likeStory(story) {
+  const storyRef = db.collection('stories').doc(story);
+  storyRef.update({
+    like_count: firebase.firestore.FieldValue.increment(1)
+  })
+  .then(() => {
+    console.log(`Liked ${story}`);
+  })
+  .catch(error => {
+    console.error('Error updating like count: ', error);
+  });
+}
+
+// Function to decrement the like count
+function unlikeStory(story) {
+  const storyRef = db.collection('stories').doc(story);
+  storyRef.update({
+    like_count: firebase.firestore.FieldValue.increment(-1)
+  })
+  .then(() => {
+    console.log(`Unliked ${story}`);
+  })
+  .catch(error => {
+    console.error('Error updating like count: ', error);
+  });
+}
+</script>
 </body>
 </html>
