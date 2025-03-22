@@ -145,9 +145,9 @@ window.stories = [
         const likeDisplay = document.getElementById(`like-display-${story.file}`);
         if (likeDisplay) {
           if (likeCount > 0) {
-            likeDisplay.innerHTML = `<i class="bi bi-hand-thumbs-up-fill" style="color: springgreen;"></i> ${likeCount}`;
+            likeDisplay.innerHTML = `<i class="bi bi-emoji-smile-fill" style="color: springgreen;"></i> ${likeCount}`;
           } else if (likeCount < 0) {
-            likeDisplay.innerHTML = `<i class="bi bi-hand-thumbs-down-fill" style="color: crimson;"></i> ${likeCount}`;
+            likeDisplay.innerHTML = `<i class="bi bi-emoji-frown-fill" style="color: crimson;"></i> ${likeCount}`;
           } else {
             // If zero, show nothing (or you can optionally show a neutral icon)
             likeDisplay.innerHTML = '';
