@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="imagetoolbar" content="no">
   <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="../_bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="main.css" rel="stylesheet" type="text/css">
   <!-- Prevent caching -->
@@ -59,8 +60,14 @@
   </div>
 </div>
 <div class="d-flex flex-wrap align-items-center justify-content-center fixed-footer" id="likes">
-  <button onclick="likeStory(story)" class="btn btn-success mx-1 hover-effect-btn">Like</button>
-  <button onclick="unlikeStory(story)"class="btn btn-danger mx-1 hover-effect-btn">Unlike</button>
+
+  <button onclick="likeStory(story)" class="btn btn-success mx-1 hover-effect-btn">
+    <i class="bi bi-hand-thumbs-up"></i>
+  </button>
+  <button onclick="unlikeStory(story)" class="btn btn-danger mx-1 hover-effect-btn">
+    <i class="bi bi-hand-thumbs-down"></i>
+  </button>
+  
 </div>
   <script>
     // 1. Get the "story" parameter from the URL (e.g. story.html?story=Fog)
