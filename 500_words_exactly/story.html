@@ -67,7 +67,7 @@
   <button onclick="unlikeStory(story)" class="btn btn-danger mx-1 hover-effect-btn">
     <i class="bi bi-hand-thumbs-down"></i>
   </button>
-  
+
 </div>
   <script>
     // 1. Get the "story" parameter from the URL (e.g. story.html?story=Fog)
@@ -203,7 +203,7 @@
 
   window.unlikeStory = function(story) {
     const storyRef = doc(db, 'stories', story);
-    updateDoc(storyRef, { like_count: increment(-1) })
+    updateDoc(storyRef, { unlike_count: increment(1) })
       .then(() => {
         console.log(`Unliked ${story}`);
       })
