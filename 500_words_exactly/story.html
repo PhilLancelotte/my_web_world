@@ -15,7 +15,20 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <link rel="shortcut icon" href="_story_images/coo.ico">
-
+  <style>
+    body {
+      margin: 0;
+      padding-bottom: 60px; /* Adjust based on footer height */
+    }
+    .fixed-footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #f8f9fa; /* Adjust as needed */
+      padding: 10px;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.0);
+    }
+  </style>
 </head>
 <body>
   <div class="orientation-warning">
@@ -45,9 +58,9 @@
     </div>
   </div>
 </div>
-<div class="d-flex flex-wrap align-items-center justify-content-center" id="likes">
-  <button onclick="likeStory('${story}')">Like</button>
-  <button onclick="unlikeStory('${story}')">Unlike</button>
+<div class="d-flex flex-wrap align-items-center justify-content-center fixed-footer" id="likes">
+  <button onclick="likeStory('${story}')" class="btn btn-primary mx-1 hover-effect-btn">Like</button>
+  <button onclick="unlikeStory('${story}')"class="btn btn-primary mx-1 hover-effect-btn">Unlike</button>
 </div>
   <script>
     // 1. Get the "story" parameter from the URL (e.g. story.html?story=Fog)
