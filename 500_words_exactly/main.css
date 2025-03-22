@@ -347,6 +347,11 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
 /* Explicitly show only on small screens in landscape mode */
 @media only screen and (orientation: landscape) and (max-device-width: 1024px) {
   .orientation-warning {
-    display: block !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering */
+    align-items: center;     /* horizontal centering */
+    height: 100vh;           /* full viewport height */
+    text-align: center;      /* centers text inside each element */
   }
 }
