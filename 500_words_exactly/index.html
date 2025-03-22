@@ -172,7 +172,12 @@ function renderStories(stories) {
           <img src="_story_images/${story.file}.png" alt="Cover image for the story ${story.title}" class="img-fluid hover-effect">
           <h4 class="visually-hidden">A story called ${story.title}, ${story.description}, Written by Phil Lancelotte</h4>
         </a>
-        <h4 aria-hidden="true">${story.title}</h4> <h3><span id="like-display-${story.file}" style="white-space: nowrap;"></span></h3>
+        <div style="display: flex; align-items: center;">
+          <h4 aria-hidden="true" style="margin: 0;">${story.title}</h4>
+          <h3 style="margin: 5;">
+            <span id="like-display-${story.file}" style="white-space: nowrap;"></span>
+          </h3>
+        </div>
       </div>
     `).join('');
   }
