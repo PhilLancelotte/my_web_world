@@ -91,6 +91,7 @@ body {
 .container {
   margin: 0 auto;
   padding: 20px;
+  padding-bottom: 40px;
 }
 
 /* Header (from template.php) */
@@ -289,6 +290,7 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   .container {
     margin: 0 auto;
     padding: 0;
+    padding-bottom: 50px;
   }
   .main-content {
     margin-top: 290px;
