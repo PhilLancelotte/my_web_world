@@ -314,7 +314,7 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
     flex-wrap: wrap;              /* Allow buttons to wrap onto multiple lines */
     justify-content: center;      /* Center them horizontally (or use flex-start for left alignment) */
     gap: 4px;                     /* Space between buttons */
-    padding: 4px;                 /* Optional container padding */
+    padding: 0px;                 /* Optional container padding */
   }
   
   .button-container .btn {
