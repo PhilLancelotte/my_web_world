@@ -291,7 +291,7 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
     margin: 0 auto;
     padding: 0;
     padding-bottom: 50px;
-    padding-bottom: 290px;
+    padding-top: 290px;
   }
   .main-content {
     margin-top: 290px;
