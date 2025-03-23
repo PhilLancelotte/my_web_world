@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"> 
-
     <head>
         <title>Hello World!</title>
-
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
@@ -12,9 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="my third page - CW mobile views">
         <meta name="Author" content="Phil Lancelotte">
-
         <link rel="stylesheet" href="_css/mobile_styles.css">
-
     </head>
     <body>
         <div class="main-container">
@@ -34,7 +30,8 @@
                     <span id="desc2" class="visually-hidden">Navigate to the accessible version of the site for mobiles</span>
                     <a href="version5-apicall.html" class="button hover-effect-btn" aria-describedby="desc4">Go to Version 5</a>
                     <span id="desc2" class="visually-hidden">Navigate to the api call page for a comic</span>
-                    
+                    <a href="version6-jquery.html" class="button hover-effect-btn" aria-describedby="desc6">Go to Version 5</a>
+                    <span id="desc2" class="visually-hidden">repeat of this page in jquery</span>
                 </div>
                 <p title='ooh, a paragraph'>My name is Phil, this is me with a blue beard - honestly, I am happy!!</p>
                 <div class="img-container">
@@ -42,13 +39,10 @@
                     <button onclick="document.getElementById('me').src='_images/me.jpeg'" class="hover-effect-btn">Upright Me</button> <!-- from w3schools - cx HTML attribute src -->
                     <button onclick="document.getElementById('me').src='_images/meflipped.jpeg'" class="hover-effect-btn">Upside down me</button> <!-- from w3schools - cx HTML attribute src -->
                 </div>
-
-
                 <h2 title='BOLD'><b>I like to make things bold so they stand out.</b></h2>
                 <h3 title='slanty'><i>...and italic so they are jaunty.</i></h3>
                 <h4 style="color: #b90000 " title='color not colour!!'>and red too. </style></h4>
             </div>
-
             <div class="container-right">
                 <h2 style="background-color:#b90000 color #ffffff";>This has some form furniture</h2>
                 <form id="myForm" method="POST">
@@ -56,7 +50,6 @@
                     <input type="text" id="fname" name="fname" value="Phil"><br>
                     <label for="lname">Last name:</label><br>
                     <input type="text" id="lname" name="lname" value="Lancelotte"><br><br>
-
                     <h3 style="background-color:#b90000 color #ffffff";>Pick a favourite...</h3>
                     <input type="radio" id="donkey" name="fav_small_horse" value="Donkey">
                     <label for="donkey">Donkey</label><br>
@@ -64,31 +57,23 @@
                     <label for="mule">Mule</label><br>
                     <input type="radio" id="ass" name="fav_small_horse" value="Ass">
                     <label for="ass">Ass</label><br><br>
-
                     <input type="submit" value="Submit" aria-label="this is the submit button">
                 </form>
-
                 <form id="emailForm">
                     <label for="email">Type your email address here (so you get a copy):</label>
                     <input type="email" id="email" value="someone@example.com" required>
                     <br><br>
-                    
                     <label for="idea">My Idea Is Called...:</label>
                     <input type="text" id="idea" placeholder="idea" required>
                     <br><br>
-                    
                     <label for="body">Enter the details of your idea:</label>
                     <textarea id="body" placeholder="Type your message here..." required></textarea>
                     <br><br>
-                    
                     <button type="submit">Send Email</button>
                   </form>
-
-
             </div>
         </div>
                 
-
 <h1 style="text-align:center;">Centred Heading</h1> 
 <div class="main-container">
     <div class="container-wide">
@@ -103,21 +88,17 @@
     document.getElementById('myForm').addEventListener('submit', function(event) {
       // Prevent the default form submission (and page reload)
       event.preventDefault();
-      
       // Retrieve form data
       var firstName = document.getElementById('fname').value;
       var lastName = document.getElementById('lname').value;
-      
       // Retrieve the selected radio button
       var selectedRadio = document.querySelector('input[name="fav_small_horse"]:checked');
       var favSmallHorse = selectedRadio ? selectedRadio.value : 'none';
-      
       // Display the welcome header with the input values
       document.getElementById('welcomeHeader').innerText =
         'Welcome ' + firstName + ' ' + lastName +
         '! I see you like ' + favSmallHorse + 's. What is wrong with a dog??';
     });
-
     // This is the quote changeover script, it gives a new quote whan a button is pressed
     // This is an array of computer quotes
     const quotes = [
@@ -150,51 +131,39 @@
         "Nobody expects the Spanish Inquisition! – Monty Python's Flying Circus",
         "Always look on the bright side of life. – Monty Python's Life of Brian"
     ];
-
     function getRandomQuote() {
       const randomIndex = Math.floor(Math.random() * quotes.length);
       return quotes[randomIndex];
     }
-
     // Display an initial random quote
     const randomContentDiv = document.getElementById('random_content');
     function displayRandomQuote() {
       randomContentDiv.textContent = getRandomQuote();
     }
     displayRandomQuote();
-
     // Change the quote on button click
     document.getElementById('new-quote').addEventListener('click', displayRandomQuote);
-
     document.getElementById('emailForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form from submitting normally
-        
         // Get form field values
         const recipient = document.getElementById('email').value;
         const subject = "I Have an Idea!!";
         const body = document.getElementById('body').value;
         const cc = encodeURIComponent('bassjuggler@gmail.com');
-
         const standardText = "Hi, \n\nMy idea is called: " + document.getElementById('idea').value;
         const userMessage = "Thanks very much.";  // this might come from a form input
         const signature = "\n\nBest Regards";
-
         // URL encode subject and body parts
         const encodedSubject = encodeURIComponent(subject);
         const encodedStandardText = encodeURIComponent(standardText);
         const encodedUserMessage = encodeURIComponent(userMessage);
         const encodedSignature = encodeURIComponent(signature);
-
         // Construct the mailto URL
         const mailtoLink = `mailto:${recipient}?cc=${cc}&subject=${encodedSubject}&body=${encodedStandardText}%0A%0A${body}%0A%0A${encodedUserMessage}${encodedSignature}`;
-
         console.log(mailtoLink);  // For testing, log the resulting link
-
       // Open the default mail client with the mailto link
       window.location.href = mailtoLink;
-
     });
-
     const containerRight = document.querySelector('.container-right');
         containerRight.addEventListener('mouseenter', () => {
         // Change background color when mouse enters
