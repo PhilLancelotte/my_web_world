@@ -308,6 +308,25 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   .main-content-story {
     margin-top: 140px;
   }
+
+  .button-container {
+    display: flex;
+    flex-wrap: wrap;              /* Allow buttons to wrap onto multiple lines */
+    justify-content: center;      /* Center them horizontally (or use flex-start for left alignment) */
+    gap: 4px;                     /* Space between buttons */
+    padding: 4px;                 /* Optional container padding */
+  }
+  
+  .button-container .btn {
+    display: flex;                /* Use flex for inner content alignment */
+    align-items: center;
+    justify-content: center;
+    width: 200px;                  /* Fixed width */
+    height: 12px;                 /* Fixed height */
+    margin: 4px;                  /* Extra margin around each button */
+    box-sizing: border-box;       /* Ensure padding/border are included in size */
+    text-align: center;
+  }
 }
 
 /* Landscape mode - Mobile devices */
