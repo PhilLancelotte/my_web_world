@@ -165,8 +165,9 @@ h4 {
 
 .scrollable-container {
   max-height: 60vh;
-  /* overflow-y: auto; */
   padding: 10px;
+  padding-bottom: 50px;
+
 }
 
 .scrollable-container::-webkit-scrollbar {
