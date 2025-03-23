@@ -173,7 +173,7 @@ h4 {
   width: 12px;
 }
 .scrollable-container::-webkit-scrollbar-track {
-  background: rgb(252, 186, 186);
+  background: rgb(0, 0, 255);
 }
 .scrollable-container::-webkit-scrollbar-thumb {
   background-color: #888;
@@ -225,7 +225,7 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   top: 0;
   left: 0;
   right: 0;
-  background: #fff; /* Set a background color to cover content underneath */
+  background: #fff; /* Set a background color to hide content underneath - match the page colour*/
   z-index: 1000;    /* Ensure it stays on top */
 }
 

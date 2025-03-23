@@ -110,12 +110,6 @@ window.stories = [
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
   import { getFirestore, doc, getDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
 
-
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyBUFP5TU2htdupxb4wVPpQodIUSxC_cDbY",
     authDomain: "words-b33f3.firebaseapp.com",
@@ -130,12 +124,12 @@ window.stories = [
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  // Expose db to the global scope if needed
+  // Expose db to the global variables
   window.db = db;
 
   // Wait until the DOM is fully loaded
   document.addEventListener('DOMContentLoaded', async () => {
-    // Loop through each story in your global stories array
+    // Loop through each story in the global stories array
     for (const story of window.stories) {
       // Create a reference to the Firestore document (using the story.file as document id)
       const storyRef = doc(db, 'stories', story.file);
@@ -154,7 +148,7 @@ window.stories = [
           } else if (likeCount < 0) {
             likeDisplay.innerHTML = `<i class="bi bi-emoji-frown-fill" style="color: firebrick;"></i> ${likeCount}`;
           } else {
-            // If zero, show nothing (or you can optionally show a neutral icon)
+            // If zero, show nothing 
             likeDisplay.innerHTML = '';
           }
         }
@@ -180,7 +174,7 @@ function renderStories(stories) {
         <div style="display: flex; align-items: center;">
           <h4 aria-hidden="true" style="margin: 0;">${story.title}</h4>
           <h3 style="margin: 5px;">
-            <span id="like-display-${story.file}" style="white-space: nowrap;"></span>
+            <span id="like-display-${story.title}" style="white-space: nowrap;"></span>
           </h3>
         </div>
       </div>
