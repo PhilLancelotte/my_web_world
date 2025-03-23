@@ -289,9 +289,11 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   }
   .container {
     margin: 0 auto;
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
     padding-bottom: 50px;
-    padding-top: 290px;
+
   }
   .main-content {
     margin-top: 290px;
