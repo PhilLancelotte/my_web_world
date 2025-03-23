@@ -132,7 +132,7 @@ window.stories = [
     // Loop through each story in the global stories array
     for (const story of window.stories) {
       // Create a reference to the Firestore document (using the story.file as document id)
-      const storyRef = doc(db, 'stories', story.title);
+      const storyRef = doc(db, 'stories', story.file);
       try {
         const docSnap = await getDoc(storyRef);
         // Default likeCount is 0 if no document exists or field is missing
