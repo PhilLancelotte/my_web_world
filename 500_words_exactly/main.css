@@ -287,12 +287,14 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   h1 {
     font-size: 20px;
   }
-  .container {
+  .container-special {
     margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    padding-bottom: 50px;
+    padding: 0;
+  }
+    
+  .container {
+      margin: 0 auto;
+      padding: 0;
 
   }
   .main-content {
@@ -333,6 +335,15 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
     margin: 0px;
     padding: 0px;
   }
+
+  .container-special {
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 50px;
+  }
+
   .main-content {
     margin-top: 100px; /* smaller margin-top in landscape */
   }
