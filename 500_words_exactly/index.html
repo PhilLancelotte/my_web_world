@@ -51,7 +51,7 @@
   </div>
   
   <!-- Responsive Grid for Stories -->
-  <div class="main-content" style="margin-top: 305px;">
+  <div class="main-content" style="margin-top: var(--fixed-top-height)">
     <div class="scrollable-container">
       <div class="container">
         <div class="row" id="stories-container">
@@ -182,6 +182,16 @@ function renderStories(stories) {
   }
 
   document.addEventListener('DOMContentLoaded', () => renderStories(stories));
+
+  window.addEventListener('load', () => {
+  const fixedTop = document.querySelector('.fixed-top');
+  const height = fixedTop.offsetHeight;
+  console.log("Fixed-top height:", height);
+  
+  // Optionally, set a CSS variable for use in your stylesheet:
+  document.documentElement.style.setProperty('--fixed-top-height', `${height}px`);
+});
+
 
 </script>
 
