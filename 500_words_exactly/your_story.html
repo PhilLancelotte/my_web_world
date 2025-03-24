@@ -19,13 +19,18 @@
 </head>
 <body>
   <div class="orientation-warning">
+    <h1>
+      <a>
+        <img src="_story_images/500_title.png" alt="Cover image for the story 500_title" class="img-fluid-title">
+      </a>
+    </h1>
     Please rotate your device to portrait mode for the best experience.
   </div>
 <div class="fixed-top">
   <div class="container text-center my-3">
-    <h1 id="page-title">
+    <h1>
       <a>
-        <img src="_story_images/500_title.png" alt="500_title" class="img-fluid" style="height:5%vh;">
+      <img src="_story_images/500_title.png" alt="500_title" class="img-fluid-title">
         <span class="visually-hidden">Webpage header image</span>
       </a>
     </h1>
@@ -143,7 +148,7 @@
           </header>
           <div class="scrollable-container">
             <div class="image_container">
-              ${story !== 'No Story Available - Sorry' ? `<img src="_story_images/${story}.png" alt="${story}" class="responsive" style="height:400px;">` : ''}
+              ${story !== 'No Story Available - Sorry' ? `<img src="_story_images/${story}.png" alt="${story}" class="responsive" style="height:300px;">` : ''}
             </div>
             <main class="content">
               ${contentWithBreaks}
