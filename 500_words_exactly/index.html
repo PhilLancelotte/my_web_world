@@ -164,31 +164,33 @@ window.stories = [
 <script>
 
 function renderStories(stories) {
-    const container = document.getElementById('stories-container');
-    container.innerHTML = stories.map(story => `
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 box hover-effect">
-        <a href="story.html?story=${encodeURIComponent(story.file)}">
-          <img src="_story_images/${story.file}.png" alt="Cover image for the story ${story.title}" class="img-fluid hover-effect">
-          <h4 class="visually-hidden">A story called ${story.title}, ${story.description}, Written by Phil Lancelotte</h4>
-        </a>
-        <div style="display: flex; align-items: center;">
-          <h4 aria-hidden="true" style="margin: 0;">${story.title}</h4>
-          <h3 style="margin: 5px;">
-            <span id="like-display-${story.file}" style="white-space: nowrap;"></span>
-          </h3>
-        </div>
+  const container = document.getElementById('stories-container');
+  container.innerHTML = stories.map(story => `
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 box hover-effect">
+      <a href="story.html?story=${encodeURIComponent(story.file)}">
+        <img src="_story_images/${story.file}.png" alt="Cover image for the story ${story.title}" class="img-fluid hover-effect">
+        <h4 class="visually-hidden">A story called ${story.title}, ${story.description}, Written by Phil Lancelotte</h4>
+      </a>
+      <div style="display: flex; align-items: center;">
+        <h4 aria-hidden="true" style="margin: 0;">${story.title}</h4>
+        <h3 style="margin: 5px;">
+          <span id="like-display-${story.file}" style="white-space: nowrap;"></span>
+        </h3>
       </div>
-    `).join('');
-  }
+    </div>
+  `).join('');
+}
 
-  document.addEventListener('DOMContentLoaded', () => renderStories(stories));
+document.addEventListener('DOMContentLoaded', () => renderStories(stories));
 
-  window.addEventListener('load', () => {
+// on page load, determine height of fixed-top element 
+window.addEventListener('load', () => {
+  
   const fixedTop = document.querySelector('.fixed-top');
   const height = fixedTop.offsetHeight;
   console.log("Fixed-top height:", height);
   
-  // Optionally, set a CSS variable for use in your stylesheet:
+  // set a CSS variable for use in index and story stylesheet:
   document.documentElement.style.setProperty('--fixed-top-height', `${height}px`);
 });
 
