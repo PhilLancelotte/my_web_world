@@ -263,8 +263,8 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
   align-items: center;
 }
 
-.img-fluid {
-  height: 4vh; 
+.img-fluid-title {
+  height: 12vh;
 }
 
 
@@ -332,8 +332,9 @@ p { font-family: Arial, sans-serif; font-size: 20px; }
     text-align: center;
   }
 
-  .img-fluid {
-    height: 90vw;
+  .img-fluid-title {
+    width: 95vw;
+    height: 9vh;
   }
 }
 
