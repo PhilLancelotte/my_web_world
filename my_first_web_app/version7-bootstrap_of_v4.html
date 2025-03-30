@@ -13,78 +13,125 @@
         <link rel="stylesheet" href="../_bootstrap/css/bootstrap.css">
     </head>
     <body>
-        <div class="container">
-            <header><h1 title='title'>Hello World!! Stay a while and hover over the elements.</h1></header>
+        <div class="container my-4">
+            <header>
+              <h1 title="title">Hello World!! Stay a while and hover over the elements.</h1>
+            </header>
         </div>
-        <div class="container">
+          
+          <!-- Welcome Header -->
+        <div class="container my-4">
             <header id="welcomeHeader"></header>
         </div>
-        <div class="container">
+          
+          <!-- Navigation Buttons & Content -->
+          <div class="container my-4">
             <div class="row">
-                <div class="button-container">
-                    <a href="index.html" class="button hover-effect-btn" aria-describedby="desc1">Back to Version 1</a>
-                    <span id="desc1" class="visually-hidden">Go back to the previous version of the website</span>
-                    <a href="version2-accessible.html" class="button hover-effect-btn" aria-describedby="desc2">Back to Version 2</a>
-                    <span id="desc2" class="visually-hidden">Navigate to the accessible version of the site</span>
-                    <a href="version3-mobile.html" class="button hover-effect-btn" aria-describedby="desc3">Back to Version 3</a>
-                    <span id="desc2" class="visually-hidden">Navigate to the accessible version of the site for mobiles</span>
-                    <a href="version5-apicall.html" class="button hover-effect-btn" aria-describedby="desc4">Go to Version 5</a>
-                    <span id="desc2" class="visually-hidden">Navigate to the api call page for a comic</span>
-                    <a href="version6-jquery.html" class="button hover-effect-btn" aria-describedby="desc6">Go to Version 6</a>
-                    <span id="desc2" class="visually-hidden">repeat of this page in jquery</span>
+              <div class="col">
+                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                  <a href="index.html" class="btn btn-primary" aria-describedby="desc1">Back to Version 1</a>
+                  <span id="desc1" class="visually-hidden">Go back to the previous version of the website</span>
+                  <a href="version2-accessible.html" class="btn btn-primary" aria-describedby="desc2">Back to Version 2</a>
+                  <span id="desc2" class="visually-hidden">Navigate to the accessible version of the site</span>
+                  <a href="version3-mobile.html" class="btn btn-primary" aria-describedby="desc3">Back to Version 3</a>
+                  <span id="desc3" class="visually-hidden">Navigate to the accessible version of the site for mobiles</span>
+                  <a href="version5-apicall.html" class="btn btn-primary" aria-describedby="desc4">Go to Version 5</a>
+                  <span id="desc4" class="visually-hidden">Navigate to the API call page for a comic</span>
+                  <a href="version6-jquery.html" class="btn btn-primary" aria-describedby="desc6">Go to Version 6</a>
+                  <span id="desc6" class="visually-hidden">Repeat of this page in jQuery</span>
                 </div>
-
-                <p title='ooh, a paragraph'>My name is Phil, this is me with a blue beard - honestly, I am happy!!</p>
-                <div class="img-container">
-                    <img title='Blue Bearded Happy Man' id="me" class="img-fluid hover-effect" src ='_images/me.jpeg' alt="Man with a blue beard" width="200" >
-                    <button onclick="document.getElementById('me').src='_images/me.jpeg'" class="hover-effect-btn">Upright Me</button> <!-- from w3schools - cx HTML attribute src -->
-                    <button onclick="document.getElementById('me').src='_images/meflipped.jpeg'" class="hover-effect-btn">Upside down me</button> <!-- from w3schools - cx HTML attribute src -->
-                </div>
-                <h2 title='BOLD'><b>I like to make things bold so they stand out.</b></h2>
-                <h3 title='slanty'><i>...and italic so they are jaunty.</i></h3>
-                <h4 style="color: #b90000 " title='color not colour!!'>and red too. </style></h4>
+              </div>
             </div>
-            <div class="container">
-                <h2 style="background-color:#b90000 color #ffffff";>This has some form furniture</h2>
-                <form id="myForm" method="POST">
-                    <label for="fname">First name:</label><br>
-                    <input type="text" id="fname" name="fname" value="Phil"><br>
-                    <label for="lname">Last name:</label><br>
-                    <input type="text" id="lname" name="lname" value="Lancelotte"><br><br>
-                    <h3 style="background-color:#b90000 color #ffffff";>Pick a favourite...</h3>
-                    <input type="radio" id="donkey" name="fav_small_horse" value="Donkey">
-                    <label for="donkey">Donkey</label><br>
-                    <input type="radio" id="mule" name="fav_small_horse" value="Mule">
-                    <label for="mule">Mule</label><br>
-                    <input type="radio" id="ass" name="fav_small_horse" value="Ass">
-                    <label for="ass">Ass</label><br><br>
-                    <input type="submit" value="Submit" aria-label="this is the submit button">
-                </form>
-                <form id="emailForm">
-                    <label for="email">Type your email address here (so you get a copy):</label>
-                    <input type="email" id="email" value="someone@example.com" required>
-                    <br><br>
-                    <label for="idea">My Idea Is Called...:</label>
-                    <input type="text" id="idea" placeholder="idea" required>
-                    <br><br>
-                    <label for="body">Enter the details of your idea:</label>
-                    <textarea id="body" placeholder="Type your message here..." required></textarea>
-                    <br><br>
-                    <button type="submit">Send Email</button>
-                </form>
+            
+            <!-- Paragraph & Image Section -->
+            <div class="row my-4">
+              <div class="col-12">
+                <p title="ooh, a paragraph">
+                  My name is Phil, this is me with a blue beard - honestly, I am happy!!
+                </p>
+              </div>
+              <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <img title="Blue Bearded Happy Man" id="me" class="img-fluid" src="_images/me.jpeg" alt="Man with a blue beard" width="200">
+              </div>
+              <div class="col-md-6 d-flex flex-column align-items-center">
+                <button onclick="document.getElementById('me').src='_images/me.jpeg'" class="btn btn-secondary mb-2">
+                  Upright Me
+                </button>
+                <button onclick="document.getElementById('me').src='_images/meflipped.jpeg'" class="btn btn-secondary mb-2">
+                  Upside Down Me
+                </button>
+              </div>
+              <div class="col-12">
+                <h2 title="BOLD"><strong>I like to make things bold so they stand out.</strong></h2>
+                <h3 title="slanty"><em>...and italic so they are jaunty.</em></h3>
+                <h4 style="color: #b90000;" title="color not colour!!">and red too.</h4>
+              </div>
             </div>
-        </div>
-                
-<h1 style="text-align:center;">Centred Heading</h1> 
-<div class="container">
-    <div class="container">
-        <header><h1 title='title'>This should display random quotes.</h1></header>
-        <div id="random_content"></div>
-        <br>
-        <button id="new-quote">New Quote</button>
-        <a href="mailto:Phil.Lancelotte@student.shu.ac.uk?subject=Site%20Accessibility%20Issue&body=Hi%20Phil.%0A%0AThis%20site%20has%20accessibility%20issues,%20the%20problem%20I%20have%20is%20on%20the%20_______page.%0A%0AThe%20issue%20is%20as%20follows:">Report an Accessibility Issue</a>
-    </div>
-</div>
+          </div>
+          
+          <!-- Form Section -->
+          <div class="container my-4">
+            <h2 style="background-color: #b90000; color: #ffffff;" class="p-2">This has some form furniture</h2>
+            <form id="myForm" method="POST">
+              <div class="mb-3">
+                <label for="fname" class="form-label">First name:</label>
+                <input type="text" id="fname" name="fname" value="Phil" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label for="lname" class="form-label">Last name:</label>
+                <input type="text" id="lname" name="lname" value="Lancelotte" class="form-control">
+              </div>
+              <h3 style="background-color: #b90000; color: #ffffff;" class="p-2">Pick a favourite...</h3>
+              <div class="form-check">
+                <input type="radio" id="donkey" name="fav_small_horse" value="Donkey" class="form-check-input">
+                <label for="donkey" class="form-check-label">Donkey</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" id="mule" name="fav_small_horse" value="Mule" class="form-check-input">
+                <label for="mule" class="form-check-label">Mule</label>
+              </div>
+              <div class="form-check mb-3">
+                <input type="radio" id="ass" name="fav_small_horse" value="Ass" class="form-check-input">
+                <label for="ass" class="form-check-label">Ass</label>
+              </div>
+              <button type="submit" class="btn btn-primary" aria-label="this is the submit button">Submit</button>
+            </form>
+            
+            <form id="emailForm" class="mt-4">
+              <div class="mb-3">
+                <label for="email" class="form-label">Type your email address here (so you get a copy):</label>
+                <input type="email" id="email" value="someone@example.com" required class="form-control">
+              </div>
+              <div class="mb-3">
+                <label for="idea" class="form-label">My Idea Is Called...:</label>
+                <input type="text" id="idea" placeholder="idea" required class="form-control">
+              </div>
+              <div class="mb-3">
+                <label for="body" class="form-label">Enter the details of your idea:</label>
+                <textarea id="body" placeholder="Type your message here..." required class="form-control"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Email</button>
+            </form>
+          </div>
+          
+          <!-- Centered Heading Section -->
+          <div class="container my-4 text-center">
+            <h1>Centred Heading</h1>
+          </div>
+          
+          <!-- Random Quotes Section -->
+          <div class="container my-4">
+            <header>
+              <h1 title="title">This should display random quotes.</h1>
+            </header>
+            <div id="random_content"></div>
+            <div class="mt-3">
+              <button id="new-quote" class="btn btn-secondary">New Quote</button>
+              <a href="mailto:Phil.Lancelotte@student.shu.ac.uk?subject=Site%20Accessibility%20Issue&amp;body=Hi%20Phil.%0A%0AThis%20site%20has%20accessibility%20issues,%20the%20problem%20I%20have%20is%20on%20the%20_______page.%0A%0AThe%20issue%20is%20as%20follows:" class="btn btn-link">
+                Report an Accessibility Issue
+              </a>
+            </div>
+          </div>
 <script>
     document.getElementById('myForm').addEventListener('submit', function(event) {
       // Prevent the default form submission (and page reload)
