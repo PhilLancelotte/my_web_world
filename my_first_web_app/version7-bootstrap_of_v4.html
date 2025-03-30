@@ -47,7 +47,7 @@
         <div class="container my-4">
             <div class="row">
             <!-- Left Column: Paragraph and Image Section -->
-                <div class="col-md-6" style="background-color: #c5b2ff;">
+                <div class="col-md-6 left" style="background-color: #c5b2ff;">
                     <!-- Paragraph -->
                     <p title="ooh, a paragraph">
                     My name is Phil, this is me with a blue beard - honestly, I am happy!!
@@ -73,7 +73,7 @@
             </div>
             
             <!-- Right Column: Form Section -->
-            <div class="col-md-6" style="background-color: #b2f9ff;">
+            <div class="col-md-6 right" style="background-color: #b2f9ff;">
                 <h2 style="background-color: #b90000; color: #ffffff;" class="p-2">This has some form furniture</h2>
                 <form id="myForm" method="POST">
                     <div class="mb-3">
@@ -105,7 +105,7 @@
             <h1>Centred Heading</h1>
         </div>
 
-        <div class="container my-4" style="background-color: #a5e3bd;">
+        <div class="container my-4 full" style="background-color: #a5e3bd;">
             <form id="emailForm" class="mt-4">
                 <div class="mb-3">
                     <label for="email" class="form-label">Type your email address here (so you get a copy):</label>
@@ -217,7 +217,7 @@
       // Open the default mail client with the mailto link
       window.location.href = mailtoLink;
     });
-    const containerRight = document.querySelector('.container-right');
+    const containerRight = document.querySelector('.right');
         containerRight.addEventListener('mouseenter', () => {
         // Change background color when mouse enters
         containerRight.style.backgroundColor = '#888';
@@ -228,7 +228,7 @@
         containerRight.style.backgroundColor = '#999';
         containerWide.textContent = "Refresh the page to bring it back!!";
         });
-        const containerLeft = document.querySelector('.container-left');
+    const containerLeft = document.querySelector('.left');
         containerLeft.addEventListener('mouseenter', () => {
         // Change background color when mouse enters
         containerLeft.style.backgroundColor = '#888';
@@ -237,7 +237,7 @@
         // Change back when mouse leaves
         containerLeft.style.backgroundColor = '#999';
         });
-        const containerWide = document.querySelector('.container-wide');
+    const containerWide = document.querySelector('.full');
         containerWide.addEventListener('mouseenter', () => {
         // Change background color when mouse enters
         containerWide.style.backgroundColor = '#888';
