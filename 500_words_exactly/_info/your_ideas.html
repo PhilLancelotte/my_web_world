@@ -28,6 +28,7 @@
 
 
 <body>
+  <!-- if device is mobile show orientation warning - controlled in main.css-->
   <!-- prevents small screens showing in landscape -->
   <div class="orientation-warning">
     Please rotate your device to portrait mode for the best experience.
@@ -43,6 +44,7 @@
     </div>
 
     <!-- places buttons in one plaace -->
+     <!-- these are not standard buttons -->
     <div class="container text-center">
         <div class="button-container">
           <a href="../_info/500_words.html" class="btn btn-secondary mx-1 hover-effect-btn" data-bs-toggle="tooltip" title="Learn more about 500 words">About 500 Words</a>
@@ -74,7 +76,7 @@
           <!-- Story form (hidden by default) -->
           <div class="container mt-0" id="story_form" style="display: none;">
             <form id="storyForm">
-              <!-- Use Bootstrap's row class for layout -->
+              <!-- Use Bootstrap row class for layout -->
               <div class="row">
                 <div class="form-group col-md-6">
                   <h5><label for="name">My name is:</label></h5>
@@ -138,14 +140,14 @@
     
       // Form submission handling
       document.getElementById('storyForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent the form from submitting traditionally
+        e.preventDefault();
     
-        // Gather the form values
+        // Get the form values
         const name = document.getElementById('name').value;
         const age = document.getElementById('age').value;
         const title = document.getElementById('title').value;
         const idea = document.getElementById('idea').value;
-        const whoDoEl = document.querySelector('input[name="who_do"]:checked');
+        const whoDoEl = document.querySelector('input[name="who_do"]:checked'); // this needs to be handled differently because it is a choice 
         const who_do = whoDoEl ? whoDoEl.value : '';
     
         // Create the text content for the file and email
@@ -155,16 +157,16 @@
         const blob = new Blob([content], { type: 'text/plain' });
         const downloadLink = document.createElement('a');
         downloadLink.href = URL.createObjectURL(blob);
-        // Use the story title as file name, trimming and replacing spaces if needed
+        // Use the story title as file name, trim and replace spaces
         downloadLink.download = title.trim().replace(/\s+/g, '_') + '.txt';
-        downloadLink.click();  // Trigger the download
+        downloadLink.click();  // start the download
     
         // Construct the mailto link with the content as the body
         const recipient = "bassjuggler@gmail.com";
         const subject = title; 
         const body = encodeURIComponent(content);
     
-        // Create the mailto URL and open the default mail client
+        // Create the mailto URL and open the mail program
         const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${body}`;
         window.location.href = mailtoLink;
     
