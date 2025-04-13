@@ -52,7 +52,7 @@
 </div>
 
   <script>
-    // 1. Get the "story" parameter from the URL
+    // Get the 'story' parameter from the URL (e.g. story.html?story=Fog)
     const params = new URLSearchParams(window.location.search);
     let story = params.get('story');
     if (!story) {
@@ -60,22 +60,20 @@
     }
     sessionStorage.setItem('story', story);
   
-    // 2. Determine follow-on flag based on specific story names
+    // Determine follow-on flag based on specific story names - not expectng follow on stories from users
     let followOn = false;
     const followStories = [
-      'Where Exactly Did You Put The Moon Kevin',
-      'Its Exactly Where I Left It',
-      'Can You Make It Big Again'
+      'No stories set'
     ];
     if (followStories.includes(story)) {
       followOn = true;
     }
   
-    // 3. Set the document title
+    // Set the story/document title
     document.title = story;
     document.getElementById('page-title').textContent = story;
   
-    // 4. Render Navigation Buttons
+    // Place navigation buttons - use followOn to determine if button is needed.
     const navDiv = document.getElementById('navigation');
     navDiv.innerHTML = `
       <a class="btn btn-primary mx-1 hover-effect-btn" href="index.html" role="button" style="margin-right: 10px;">Return to main page</a>
@@ -83,7 +81,9 @@
       ${followOn ? `<a href="_info/followon.html?story=${encodeURIComponent(story)}" class="btn btn-danger btn-mx-1 hover-effect-btn">This is a series - Next</a>` : ''}
     `;
   
-    // 5. Build the story title with proper punctuation and text fixes
+    // Build the story title with proper punctuation and text fixes
+    // add '?' if storyTitle is a question.
+    // add "'" and "-" as necessary - this will be required as special case when new stories are added.
     function transformTitle(story) {
       let storyTitle = story;
       const questionStarters = ['Where', 'What', 'Why', 'Who', 'How', 'Can'];
@@ -92,21 +92,19 @@
       } else {
         storyTitle += " - ";
       }
-      // Replace words with appropriate punctuation
+      // insert punctuation properly
       storyTitle = storyTitle.replace(/\bThats\b/g, "That's")
                              .replace(/\bIts\b/g, "It's")
                              .replace(/\bWhats\b/g, "What's")
-                             .replace(/\bMikes\b/g, "Mike's")
                              .replace(/\bDont\b/g, "Don't")
                              .replace(/\bdont\b/g, "don't")
-                             .replace(/\bLucys\b/g, "Lucy's")
-                             .replace(/\bDihydrogen\b/g, "Di-Hydrogen");
+                             .replace(/\bLucys\b/g, "Lucy's");
       return storyTitle;
     }
 
     const storyTitle = transformTitle(story);
   
-    // 6. Load the story content from a JSON file
+    // Load the story content from a json file (simulate file_get_contents)
     let contentPromise;
     if (story !== 'No Story Available - Sorry') {
       contentPromise = fetch(`_story_files/your_ideas/${story}.json`)
@@ -117,7 +115,7 @@
           return response.json(); // Parse JSON
         })
         .then(jsonData => {
-          // If your JSON is an array, adjust accordingly:
+          // If the JSON is an array, adjust accordingly:
           const data = Array.isArray(jsonData) ? jsonData[0] : jsonData;
           // Destructure using lowercase keys
           const { name, age, story: storyContent } = data;
@@ -136,7 +134,7 @@
       contentPromise = Promise.resolve({ storyContent: '<p>This is the default content.</p>', name: '', age: '' });
     }
 
-    // 7. After loading the content, inject the complete template into the page
+    // After load, place the complete template into the page
     contentPromise.then(({ storyContent, name, age }) => {
       if (typeof storyContent === 'string') {
         // Replace newlines with <br> tags

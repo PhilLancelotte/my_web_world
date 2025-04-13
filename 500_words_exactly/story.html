@@ -25,7 +25,7 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-      background-color: #ffffff; /* Adjust as needed */
+      background-color: #ffffff;
       padding: 10px;
       box-shadow: 0 -2px 5px rgba(0,0,0,0.0);
     }
@@ -75,16 +75,16 @@
 
 </div>
   <script>
-    // 1. Get the "story" parameter from the URL (e.g. story.html?story=Fog)
+    // Get the 'story' parameter from the URL (e.g. story.html?story=Fog)
     const params = new URLSearchParams(window.location.search);
     let story = params.get('story');
     if (!story) {
       story = 'No Story Available - Sorry';
     }
-    // Simulate storing in session by using sessionStorage
+    // Store in session by using sessionStorage
     sessionStorage.setItem('story', story);
 
-    // 2. Determine follow-on flag based on specific story names
+    // Determine follow-on flag based on specific story names
     let followOn = false;
     const followStories = [
       'Where Exactly Did You Put The Moon Kevin',
@@ -95,11 +95,11 @@
       followOn = true;
     }
 
-    // 3. Set the document title
+    // Set the story/document title
     document.title = story;
     document.getElementById('page-title').textContent = story;
 
-    // 4. Render Navigation Buttons
+    // Place navigation buttons - use followOn to determine if button is needed.
     const navDiv = document.getElementById('navigation');
     navDiv.innerHTML = `
       <a class="btn btn-primary mx-1 hover-effect-btn" href="index.html" role="button" style="margin-right: 10px;">Return to main page</a>
@@ -108,7 +108,9 @@
     `;
 
     
-    // 5. Build the story title with proper punctuation and text fixes
+    // Build the story title with proper punctuation and text fixes
+    // add '?' if storyTitle is a question.
+    // add "'" and "-" as necessary - this will be required as special case when new stories are added.
     function transformTitle(story) {
       let storyTitle = story;
       const questionStarters = ['Where', 'What', 'Why', 'Who', 'How', 'Can'];
@@ -129,7 +131,7 @@
     }
     const storyTitle = transformTitle(story);
 
-    // 6. Load the story content from a text file (simulate file_get_contents)
+    // Load the story content from a text file (simulate file_get_contents)
     let storyContent;
     if (story !== 'No Story Available - Sorry') {
       storyContent = fetch(`_story_files/${story}.txt`)
@@ -147,7 +149,7 @@
       storyContent = Promise.resolve('<p>This is the default content.</p>');
     }
 
-    // 7. After loading the content, inject the complete template into the page
+    // After load, place the complete template into the page
     storyContent.then(rawContent => {
       // Replace newlines with <br> tags
       const contentWithBreaks = rawContent.replace(/\n/g, '<br>');
@@ -176,6 +178,8 @@
 
 
   // TODO: Add SDKs for Firebase products that you want to use
+  // TODO: rebuild in MSSQL or MySQL on server side after module review
+  // TODO: remove API so it can be used again for other projects
   // https://firebase.google.com/docs/web/setup#available-libraries
 
   // Your web app's Firebase configuration
@@ -195,6 +199,8 @@
   const db = getFirestore(app);
 
   // Expose functions to the global scope
+  // like - unlike = number of revews
+  // TODO: add admin page to graph likes/popularity
   window.likeStory = function(story) {
     const storyRef = doc(db, 'stories', story);
     updateDoc(storyRef, { like_count: increment(1) })

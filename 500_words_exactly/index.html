@@ -165,6 +165,7 @@ window.stories = [
 
 <script>
 
+// this makes each story instance on the index page - image, title and like count.
 function renderStories(stories) {
   const container = document.getElementById('stories-container');
   container.innerHTML = stories.map(story => `
