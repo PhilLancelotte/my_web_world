@@ -69,7 +69,9 @@
   <br>
 
 <script>
-
+// file: what the website needs - no punctuation - Proper formatting.
+// title: what the user sees.
+// description: used by screen reader to explain the image on the webpage.
 window.stories = [
   { file: "Fog", title: "Fog", description: "about a collector" },
   { file: "Snot", title: "Snot", description: "about a dirty boy" },
@@ -120,7 +122,7 @@ window.stories = [
     measurementId: "G-8629EV9H61"
   };
 
-  // Initialize Firebase and Firestore
+  // Initialise Firebase and Firestore
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
@@ -131,7 +133,7 @@ window.stories = [
   document.addEventListener('DOMContentLoaded', async () => {
     // Loop through each story in the global stories array
     for (const story of window.stories) {
-      // Create a reference to the Firestore document (using the story.file as document id)
+      // Create a reference to the Firestore document (using the story.file as the id)
       const storyRef = doc(db, 'stories', story.file);
       try {
         const docSnap = await getDoc(storyRef);
